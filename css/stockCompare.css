@@ -1,0 +1,42 @@
+.main-content{
+    display: flex;
+}
+.stock_blanket{
+    width:25%;
+}
+.stock_blanket_item{
+    padding:10px 0 10px 0;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+.stock_blanket_item .stock_info{
+    padding-left:20px;
+    padding-right: 20px;
+}
+.stock_blanket_item .stock_info h2{
+    font-size:18px;
+}
+.stock_blanket_item .stock_info h3{
+    font-size:14px;
+}
+.stock_blanket button{
+    margin:10px auto 5px 20px;
+    width:120px;
+    height:35px;
+    display: block;
+    background: none;
+    font-size: 14px;
+    color:#ffde00;
+    border:1px #ffde00 solid;
+    outline: 0;
+    cursor: pointer;
+}
+.stock_blanket button:hover{
+    color:#031b2f;
+    background-color: #ffde00;
+    transition: 0.4s;
+}
+#compare_grade,#compare_forecast,#compare_graph{
+    height:400px;
+}

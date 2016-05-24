@@ -1,0 +1,39 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+}
+.industry_rank{
+    display: flex;
+    flex-direction: row;
+}
+.industry_rank_wrapper{
+    width:100%;
+}
+.industry_rank_value{
+    margin-bottom:30px;
+}
+.industry_rank table{
+    display: block;
+}
+tr{
+    height:25px;
+    margin-top:20px;
+}
+.industry_rank th,.industry_rank td{
+    padding-right:20px;
+}
+.industry_rank_total{
+    /*height:400px;*/
+}
+#industry_rank_total th,#industry_rank_total td,#stock_rank_total th,#stock_rank_total td{
+    padding-right:40px;
+}
+#stock_rank_total td span{
+    font-size:12px;
+}
+.industry_rank_grade_wrapper{
+    flex-grow: 1;
+}
+.stock_rank_grade_wrapper{
+    flex-grow: 0;
+}
