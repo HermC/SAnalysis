@@ -195,7 +195,11 @@
 #grader_graph{
     height:400px;
 }
-#text_instruction,#bench_relative{
+#text_instruction{
+    width:100%;
+}
+
+#bench_relative{
     width:50%;
 }
 .text_instruction_item{
@@ -212,10 +216,15 @@
     flex-direction: column;
 }
 .text_instruction_content{
-    margin-right:10px;
+    /*margin-right:10px;*/
     display: flex;
     width:85%;
     text-align: justify;
+}
+#dynamic{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 #dynamic_number{
     padding:10px;
@@ -223,7 +232,7 @@
     box-sizing: border-box;
 }
 #dynamic_number p{
-    margin:0 50px 10px 5px;
+    margin:0 40px 10px 5px;
 }
 #dynamic_number p span{
     margin-left:5px;

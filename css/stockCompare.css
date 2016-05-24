@@ -4,6 +4,9 @@
 .stock_blanket{
     width:25%;
 }
+.compare_main{
+    width:75%;
+}
 .stock_blanket_item{
     padding:10px 0 10px 0;
     display:flex;
@@ -37,6 +40,35 @@
     background-color: #ffde00;
     transition: 0.4s;
 }
-#compare_grade,#compare_forecast,#compare_graph{
+#compare_grade,#compare_forecast{
     height:400px;
+}
+
+#compare_graph{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.basic_graph_wrapper_other{
+    margin-right:0;
+    margin-bottom: 20px;
+    width:50%;
+}
+.graph_basic_other{
+    width:100%;
+}
+#macd_graph {
+    height:300px;
+}
+#macd_graph {
+    height:300px;
+}
+#rsi_graph {
+    height:300px;
+}
+#kdj_graph {
+    height:300px;
+}
+#boll_graph {
+    height:300px;
 }
