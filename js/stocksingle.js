@@ -3,6 +3,9 @@ var stock_id;
 
 window.setInterval(requestDynamicData, 5000);
 
+/***************************************************
+ * 动态更新数据
+ * */
 function requestDynamicData() {
     console.log("request");
     if(stock_id==undefined||stock_id==null){
@@ -13,7 +16,7 @@ function requestDynamicData() {
         url: "/stock/active.do?id="+stock_id,
         dataType: 'json',
         success: function(data) {
-
+            updateDynamicData(data);
         },
         error: function() {
             //alert("current futureData error");
@@ -22,8 +25,114 @@ function requestDynamicData() {
 }
 
 function updateDynamicData(data) {
-
+    $("#dynamic_price").html();
+    $("#dynamic_devia_val").html();
+    $("#dynamic_devia_per").html();
+    $("#dynamic_open").html();
+    $("#dynamic_volume").html();
+    $("#dynamic_close").html();
+    $("#dynamic_high").html();
+    $("#dynamic_low").html();
+    $("#dynamic_up_stop").html();
+    $("#dynamic_inner_count").html();
+    $("#dynamic_amount").html();
+    $("#dynamic_committee").html();
+    $("#dynamic_avail_amount").html();
+    $("#dynamic_pe").html();
+    $("#dynamic_profit_per").html();
+    $("#dynamic_total_volume").html();
+    $("#dynamic_turnover").html();
+    $("#dynamic_down_stop").html();
+    $("#dynamic_outer_count").html();
+    $("#dynamic_amplitude").html();
+    $("#dynamic_quantity_ratio").html();
+    $("#dynamic_total_amount").html();
+    $("#dynamic_pb").html();
+    $("#dynamic_value_per_stock").html();
+    $("#dynamic_available_stock").html();
 }
+
+/****************************************************
+ * 添加对比股票
+ * */
+function addCompareStock(id) {
+
+    var tmp = $.cookie('compareStock');
+
+    var result;
+
+    if(tmp!=undefined){
+        var result = tmp.split(",");
+        if(result[0]=="null"){
+            result.shift();
+        }
+
+        for(var i=0;i<result.length;i++){
+            if(result[i]==id){
+                return;
+            }
+        }
+
+        result.push(id);
+
+        if(result.length>4){
+            result.shift();
+        }
+
+    }else{
+        result = [id];
+    }
+
+    $.cookie('compareStock', result.join(','), {
+        expire: 10,
+        path: '/'
+    });
+
+    console.log($.cookie('compareStock'));
+}
+
+/******************************************************
+ * 添加/删除自选股
+ */
+function operateFavStock() {
+    var tmp = $.cookie('favouriteStock');
+    var isExist = false;
+    var result;
+
+    if(tmp!=undefined){
+        result = tmp.split(",");
+
+        var i;
+        for(i=0;i<result.length;i++){
+            if(result[i]==stock_id){
+                isExist = true;
+                return;
+            }
+        }
+
+        if(isExist){
+            //删除
+            result.splice(i, 1);
+            if(result.length==0){
+                $.cookie('favouriteStock', null, {
+                    expire: -1
+                });
+                return;
+            }
+        }else{
+            //添加
+            result.push(stock_id);
+        }
+
+    }else{
+        result = [stock_id];
+    }
+
+    $.cookie('favouriteStock', result.join(","), {
+        expire: 10
+    });
+}
+
 
 function showBasic() {
     $("#show_basic").attr("class", "nav-item active");
@@ -365,8 +474,8 @@ function initMacdChart() {
     macdGraph.type = "column";
     macdGraph.valueField = "macd";
     macdGraph.fillAlphas = 1;
-    macdGraph.fillColors = "#cccc99";
-    macdGraph.lineColor = "#cccc99";
+    macdGraph.fillColors = "#6699cc";
+    macdGraph.lineColor = "#6699cc";
     macdGraph.useDataSetColors = false;
     macdGraph.balloonText = "MACD: <b>[[value]]</b>";
     //macdGraph.fillColors = "#eb6877";
@@ -394,7 +503,8 @@ function initMacdChart() {
     var deaGraph = new AmCharts.AmChart();
     deaGraph.title = "DEA";
     deaGraph.valueField = "dea";
-    
+    deaGraph.lineColor = "#cccc99";
+    deaGraph.useDataSetColors = false;
     deaGraph.balloonText = "DEA: <b>[[value]]</b>";
     macdChart.addGraph(deaGraph);
 
