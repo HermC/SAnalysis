@@ -255,3 +255,22 @@
 #company_rise,#company_profit,#company_financial{
     height:300px;
 }
+
+#stock_graph {
+    height:500px;
+}
+#macd_graph {
+    height:300px;
+}
+#macd_graph {
+    height:300px;
+}
+#rsi_graph {
+    height:300px;
+}
+#kdj_graph {
+    height:300px;
+}
+#boll_graph {
+    height:300px;
+}
