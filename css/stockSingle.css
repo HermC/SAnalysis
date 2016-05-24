@@ -207,14 +207,14 @@
     padding:10px;
 }
 .text_instruction_title{
-    width:10%;
+    width:15%;
     display: flex;
     flex-direction: column;
 }
 .text_instruction_content{
     margin-right:10px;
     display: flex;
-    width:90%;
+    width:85%;
     text-align: justify;
 }
 #dynamic_number{
@@ -244,7 +244,7 @@
 }
 #dynamic_graph{
     height:200px;
-    background-color: #bba887;
+    /*background-color: #bba887;*/
 }
 .dynamic_five_level_item{
     width:20%;
@@ -256,8 +256,27 @@
     height:300px;
 }
 
+
+#basic{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.basic_graph_wrapper_k,.basic_graph_wrapper_other{
+    margin-bottom: 20px;
+}
+.basic_graph_wrapper_k{
+    width:100%;
+}
+.basic_graph_wrapper_other{
+    width:50%;
+}
 #stock_graph {
-    height:500px;
+    height:60vh;
+}
+
+.graph_basic_other{
+    width:100%;
 }
 #macd_graph {
     height:300px;
