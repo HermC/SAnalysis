@@ -39,7 +39,7 @@ AmCharts.ready(function() {
     dynamicData = intradayChartData;
     futureData = tmp_future_data;
 
-    for(var i=chartData.length-29;i<chartData.length;i++){
+    for(var i=chartData.length-30;i<chartData.length;i++){
         macdData.push(chartData[i]);
     }
 
@@ -292,7 +292,7 @@ function initMacdChart() {
 
     macdChart.write("macd_graph");
 
-    zoomChart(macdChart, chartData);
+    zoomChart(macdChart, macdData);
 }
 
 function initRsiChart() {
@@ -351,7 +351,7 @@ function initRsiChart() {
 
     rsiChart.write("rsi_graph");
 
-    zoomChart(rsiChart, chartData);
+    zoomChart(rsiChart, macdData);
 }
 
 function initKdjChart() {
@@ -424,7 +424,7 @@ function initKdjChart() {
 
     kdjChart.write("kdj_graph");
 
-    zoomChart(kdjChart, chartData);
+    zoomChart(kdjChart, macdData);
 }
 
 function initBollChart() {
@@ -497,7 +497,7 @@ function initBollChart() {
 
     bollChart.write("boll_graph");
 
-    zoomChart(bollChart, chartData);
+    zoomChart(bollChart, macdData);
 }
 
 function zoomChart(chart, chartData) {
