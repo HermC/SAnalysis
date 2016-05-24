@@ -252,7 +252,7 @@
     /*background-color: #eb6877;*/
 }
 #dynamic_graph{
-    height:200px;
+    height:350px;
     /*background-color: #bba887;*/
 }
 .dynamic_five_level_item{
@@ -300,5 +300,8 @@
     height:300px;
 }
 #boll_graph {
+    height:300px;
+}
+#forecast_graph {
     height:300px;
 }

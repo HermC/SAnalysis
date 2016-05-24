@@ -7,16 +7,16 @@ var radarData = [
         "key": "MACD",
         "value": 0
     }, {
-        "key": "KD",
+        "key": "KDJ",
         "value": 40
     }, {
         "key": "RSI",
         "value": 56
     }, {
-        "key": "turnover",
+        "key": "换手率",
         "value": 29
     }, {
-        "key": "quality",
+        "key": "量比",
         "value": 60
     }];
 

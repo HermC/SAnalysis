@@ -1,4 +1,101 @@
 
+var stock_id;
+
+window.setInterval(requestDynamicData, 5000);
+
+function requestDynamicData() {
+    console.log("request");
+    if(stock_id==undefined||stock_id==null){
+        return;
+    }
+    $.ajax({
+        type: 'GET',
+        url: "/stock/active.do?id="+stock_id,
+        dataType: 'json',
+        success: function(data) {
+
+        },
+        error: function() {
+            //alert("current futureData error");
+        }
+    });
+}
+
+function updateDynamicData(data) {
+
+}
+
+function showBasic() {
+    $("#show_basic").attr("class", "nav-item active");
+    $("#show_evaluate").attr("class", "nav-item");
+    $("#show_forecast").attr("class", "nav-item");
+    $("#show_dynamic").attr("class", "nav-item");
+    $("#show_company").attr("class", "nav-item");
+
+    $("#basic").show();
+    $("#evaluate").hide();
+    $("#forecast").hide();
+    $("#dynamic").hide();
+    $("#company").hide();
+}
+
+function showEvaluate() {
+    $("#show_basic").attr("class", "nav-item");
+    $("#show_evaluate").attr("class", "nav-item active");
+    $("#show_forecast").attr("class", "nav-item");
+    $("#show_dynamic").attr("class", "nav-item");
+    $("#show_company").attr("class", "nav-item");
+
+    $("#basic").hide();
+    $("#evaluate").show();
+    $("#forecast").hide();
+    $("#dynamic").hide();
+    $("#company").hide();
+}
+
+function showForecast() {
+    $("#show_basic").attr("class", "nav-item");
+    $("#show_evaluate").attr("class", "nav-item");
+    $("#show_forecast").attr("class", "nav-item active");
+    $("#show_dynamic").attr("class", "nav-item");
+    $("#show_company").attr("class", "nav-item");
+
+    $("#basic").hide();
+    $("#evaluate").hide();
+    $("#forecast").show();
+    $("#dynamic").hide();
+    $("#company").hide();
+}
+
+function showDynamic() {
+    $("#show_basic").attr("class", "nav-item");
+    $("#show_evaluate").attr("class", "nav-item");
+    $("#show_forecast").attr("class", "nav-item");
+    $("#show_dynamic").attr("class", "nav-item active");
+    $("#show_company").attr("class", "nav-item");
+
+    $("#basic").hide();
+    $("#evaluate").hide();
+    $("#forecast").hide();
+    $("#dynamic").show();
+    $("#company").hide();
+}
+
+function showCompany() {
+    $("#show_basic").attr("class", "nav-item");
+    $("#show_evaluate").attr("class", "nav-item");
+    $("#show_forecast").attr("class", "nav-item");
+    $("#show_dynamic").attr("class", "nav-item");
+    $("#show_company").attr("class", "nav-item active");
+
+    $("#basic").hide();
+    $("#evaluate").hide();
+    $("#forecast").hide();
+    $("#dynamic").hide();
+    $("#company").show();
+}
+
+
 /*
 * 图表的变量声明以及初始化等方法
 * */
@@ -7,10 +104,7 @@ var graderData;
 var dynamicData;
 var futureData;
 
-var macdData = [];
-var rsiData = [];
-var kdjData = [];
-var bollData = [];
+var tabChartData = [];
 
 var dataSet;
 
@@ -39,8 +133,8 @@ AmCharts.ready(function() {
     dynamicData = intradayChartData;
     futureData = tmp_future_data;
 
-    for(var i=chartData.length-30;i<chartData.length;i++){
-        macdData.push(chartData[i]);
+    for(var i=chartData.length-20;i<chartData.length;i++){
+        tabChartData.push(chartData[i]);
     }
 
     initDataSet();
@@ -54,6 +148,7 @@ AmCharts.ready(function() {
     initDynamicChart();
     initFutureChart();
 
+    showBasic();
 });
 
 function initDataSet() {
@@ -152,7 +247,10 @@ function initValueChart() {
     ma5Graph.title = "MA 5";
     ma5Graph.type = "line";
     ma5Graph.valueField = "ma5";
+    ma5Graph.fillColors = "#ffffcc";
+    ma5Graph.lineColor = "#ffffCC";
     ma5Graph.balloonText = "MA 5: <b>[[value]]</b>";
+    ma5Graph.useDataSetColors = false;
     valuePanel.addStockGraph(ma5Graph);
 
     var ma20Graph = new AmCharts.StockGraph();
@@ -183,12 +281,18 @@ function initValueChart() {
     volumeGraph.type = "column"
     volumeGraph.fillAlphas = 1;
     volumeGraph.valueField = "volume";
+    volumeGraph.fillColors = "#cc9966";
+    volumeGraph.lineColor = "#cc9966";
     volumeGraph.valueAxis = volumeAxis;
-    volumePanel.addStockGraph(volumeGraph);
+    volumeGraph.useDataSetColors = false;
 
     var totalGraph = new AmCharts.StockGraph();
+    totalGraph.title = "Total";
     totalGraph.type = "line";
     totalGraph.valueField = "total";
+    totalGraph.useDataSetColors = false;
+
+    volumePanel.addStockGraph(volumeGraph);
     volumePanel.addStockGraph(totalGraph);
 
     var volumeLegend = new AmCharts.StockLegend();
@@ -197,12 +301,19 @@ function initValueChart() {
 
     var cursor = new AmCharts.ChartCursorSettings();
     cursor.fullWidth = true;
+    cursor.valueBalloonsEnabled = true;
     cursor.cursorAlpha = 0.1
     valueChart.chartCursorSettings = cursor;
 
     var scrollbar = new AmCharts.ChartScrollbarSettings();
-    scrollbar.position = "top";
+    scrollbar.updateOnReleaseOnly = false;
+    //scrollbar.position = "top";
     valueChart.chartScrollbarSettings = scrollbar;
+
+    var categoryAxe = new AmCharts.CategoryAxesSettings();
+    categoryAxe.groupToPeriods = ["WW", "MM"];
+    categoryAxe.maxSeries = 60;
+    valueChart.categoryAxesSettings = categoryAxe;
 
     valuePanel.percentHeight = 65;
     volumePanel.percentHeight = 35;
@@ -221,7 +332,7 @@ function initMacdChart() {
     //macd图表的全局设置
     macdChart.addClassNames = true;
     macdChart.title = "MACD";
-    macdChart.dataProvider = macdData;
+    macdChart.dataProvider = tabChartData;
     macdChart.categoryField = "date";
     macdChart.dataDateFormat = "YYYY-MM-DD";
 
@@ -254,6 +365,9 @@ function initMacdChart() {
     macdGraph.type = "column";
     macdGraph.valueField = "macd";
     macdGraph.fillAlphas = 1;
+    macdGraph.fillColors = "#cccc99";
+    macdGraph.lineColor = "#cccc99";
+    macdGraph.useDataSetColors = false;
     macdGraph.balloonText = "MACD: <b>[[value]]</b>";
     //macdGraph.fillColors = "#eb6877";
     //macdGraph.negativeFillColors = "#88bb66";
@@ -263,6 +377,8 @@ function initMacdChart() {
     diffGraph.title = "DIFF";
     diffGraph.type = "line";
     diffGraph.valueField = "diff";
+    diffGraph.lineColor = "#669999";
+    diffGraph.useDataSetColors = false;
     diffGraph.balloonText = "DIFF: <b>[[value]]</b>";
     macdChart.addGraph(diffGraph);
 
@@ -270,12 +386,15 @@ function initMacdChart() {
     atrGraph.title = "ATR";
     atrGraph.type = "line";
     atrGraph.valueField = "atr";
+    atrGraph.lineColor = "#990033";
+    atrGraph.useDataSetColors = false;
     atrGraph.balloonText = "ATR: <b>[[value]]</b>";
     macdChart.addGraph(atrGraph);
 
     var deaGraph = new AmCharts.AmChart();
     deaGraph.title = "DEA";
     deaGraph.valueField = "dea";
+    
     deaGraph.balloonText = "DEA: <b>[[value]]</b>";
     macdChart.addGraph(deaGraph);
 
@@ -283,6 +402,7 @@ function initMacdChart() {
     cursor.valueBalloonsEnabled = true;
     cursor.fullWidth = true;
     cursor.cursorAlpha = 0.1;
+
     macdChart.chartCursor = cursor;
 
     var legend = new AmCharts.AmLegend();
@@ -292,7 +412,7 @@ function initMacdChart() {
 
     macdChart.write("macd_graph");
 
-    zoomChart(macdChart, macdData);
+    zoomChart(macdChart, tabChartData);
 }
 
 function initRsiChart() {
@@ -302,7 +422,7 @@ function initRsiChart() {
     //rsi图表的全局设置
     rsiChart.addClassNames = true;
     rsiChart.title = "RSI";
-    rsiChart.dataProvider = macdData;
+    rsiChart.dataProvider = tabChartData;
     rsiChart.categoryField = "date";
     rsiChart.dataDateFormat = "YYYY-MM-DD";
 
@@ -335,6 +455,8 @@ function initRsiChart() {
     rsiGraph.title = "RSI";
     rsiGraph.type = "line";
     rsiGraph.valueField = "rsi";
+    rsiGraph.lineColor = "#669999";
+    rsiGraph.useDataSetColors = false;
     rsiGraph.balloonText = "RSI: <b>[[value]]</b>";
     rsiChart.addGraph(rsiGraph);
 
@@ -351,7 +473,7 @@ function initRsiChart() {
 
     rsiChart.write("rsi_graph");
 
-    zoomChart(rsiChart, macdData);
+    zoomChart(rsiChart, tabChartData);
 }
 
 function initKdjChart() {
@@ -361,7 +483,7 @@ function initKdjChart() {
     //rsi图表的全局设置
     kdjChart.addClassNames = true;
     kdjChart.title = "KDJ";
-    kdjChart.dataProvider = macdData;
+    kdjChart.dataProvider = tabChartData;
     kdjChart.categoryField = "date";
     kdjChart.dataDateFormat = "YYYY-MM-DD";
 
@@ -391,23 +513,29 @@ function initKdjChart() {
     }];
 
     var KGraph = new AmCharts.AmGraph();
-    KGraph.title = "SLOW K";
+    KGraph.title = "Slow K";
     KGraph.type = "line";
     KGraph.valueField = "slowK";
+    KGraph.lineColor = "#669999";
+    KGraph.useDataSetColors = false;
     KGraph.balloonText = "slowK: <b>[[value]]</b>";
     kdjChart.addGraph(KGraph);
 
     var DGraph = new AmCharts.AmGraph();
-    DGraph.title = "SLOW D";
+    DGraph.title = "Slow D";
     DGraph.type = "line";
     DGraph.valueField = "slowD";
+    DGraph.lineColor = "#ffffcc";
+    DGraph.useDataSetColors = false;
     DGraph.balloonText = "slowD: <b>[[value]]</b>";
     kdjChart.addGraph(DGraph);
 
     var JGraph = new AmCharts.AmGraph();
-    JGraph.title = "SLOW J";
+    JGraph.title = "Slow J";
     JGraph.type = "line";
     JGraph.valueField = "slowJ";
+    JGraph.lineColor = "#990033";
+    JGraph.useDataSetColors = false;
     JGraph.balloonText = "slowJ: <b>[[value]]</b>";
     kdjChart.addGraph(JGraph);
 
@@ -424,7 +552,7 @@ function initKdjChart() {
 
     kdjChart.write("kdj_graph");
 
-    zoomChart(kdjChart, macdData);
+    zoomChart(kdjChart, tabChartData);
 }
 
 function initBollChart() {
@@ -434,7 +562,7 @@ function initBollChart() {
     //rsi图表的全局设置
     bollChart.addClassNames = true;
     bollChart.title = "BOLL";
-    bollChart.dataProvider = macdData;
+    bollChart.dataProvider = tabChartData;
     bollChart.categoryField = "date";
     bollChart.dataDateFormat = "YYYY-MM-DD";
 
@@ -467,6 +595,8 @@ function initBollChart() {
     upperGraph.title = "BOLL UPPER";
     upperGraph.type = "line";
     upperGraph.valueField = "boll_upper";
+    upperGraph.lineColor = "#669999";
+    upperGraph.useDataSetColors = false;
     upperGraph.balloonText = "boll upper: <b>[[value]]</b>";
     bollChart.addGraph(upperGraph);
 
@@ -474,6 +604,8 @@ function initBollChart() {
     middleGraph.title = "BOLL MIDDLE";
     middleGraph.type = "line";
     middleGraph.valueField = "boll_middle";
+    middleGraph.lineColor = "#ffffcc";
+    middleGraph.useDataSetColors = false;
     middleGraph.balloonText = "boll middle: <b>[[value]]</b>";
     bollChart.addGraph(middleGraph);
 
@@ -481,6 +613,8 @@ function initBollChart() {
     lowGraph.title = "BOLL LOW";
     lowGraph.type = "line";
     lowGraph.valueField = "boll_low";
+    lowGraph.lineColor = "#990033";
+    lowGraph.useDataSetColors = false;
     lowGraph.balloonText = "boll low: <b>[[value]]</b>";
     bollChart.addGraph(lowGraph);
 
@@ -497,7 +631,7 @@ function initBollChart() {
 
     bollChart.write("boll_graph");
 
-    zoomChart(bollChart, macdData);
+    zoomChart(bollChart, tabChartData);
 }
 
 function zoomChart(chart, chartData) {
@@ -561,7 +695,7 @@ function initDynamicChart() {
     valueGraph.type = "smoothedLine";
     valueGraph.lineThickness = 2;
     valueGraph.bullet = "round";
-    valueGraph.bulletSize = 5;
+    valueGraph.bulletSize = 4;
     valueGraph.bulletBorderColor = "#FFFFFF";
     valueGraph.bulletBorderAlpha = 1;
     valueGraph.bulletBorderThickness = 2;
@@ -591,7 +725,7 @@ function initDynamicChart() {
     scrollbarSettings.graph = valueGraph;
     scrollbarSettings.usePeriod = "10mm"; // this will improve performance
     scrollbarSettings.updateOnReleaseOnly = false;
-    scrollbarSettings.position = "top";
+    scrollbarSettings.position = "bottom";
     intradayChart.chartScrollbarSettings = scrollbarSettings;
 
     var cursorSettings = new AmCharts.ChartCursorSettings();
@@ -644,13 +778,13 @@ function initFutureChart() {
 
     var maxGraph = new AmCharts.AmGraph();
     maxGraph.id = "maxGraph";
-    maxGraph.title = "max";
+    maxGraph.title = "最大预估";
     maxGraph.type = "line";
     maxGraph.valueField = "max";
     futureChart.addGraph(maxGraph);
 
     var minGraph = new AmCharts.AmGraph();
-    minGraph.title = "min";
+    minGraph.title = "最小预估";
     minGraph.type = "line";
     minGraph.fillAlphas = 0.2;
     minGraph.fillToGraph = "maxGraph";
@@ -658,10 +792,22 @@ function initFutureChart() {
     futureChart.addGraph(minGraph);
 
     var pointGraph = new AmCharts.AmGraph();
-    pointGraph.title = "point";
+    pointGraph.title = "中值";
     pointGraph.type = "line";
+    pointGraph.bullet = "round";
+    pointGraph.bulletSize = 10;
+    pointGraph.bulletBorderThickness = 1;
+    pointGraph.lineAlpha = 0;
     pointGraph.valueField = "point";
     futureChart.addGraph(pointGraph);
+
+    var legend = new AmCharts.AmLegend();
+    legend.position = "top";
+    futureChart.legend = legend;
+
+    var cursor = new AmCharts.ChartCursor();
+    cursor.fullWidth = false;
+    futureChart.chartCursor = cursor;
 
     futureChart.write("forecast_graph");
 }

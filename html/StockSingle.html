@@ -44,10 +44,10 @@
         <hr>
 
         <div class="price">
-            <h1>17.45<img src="../img/up.png"></h1>
+            <h1 id="stock_current">17.45<img src="../img/up.png"></h1>
             <div>
-                <span>0.10</span>
-                <span>+0.53%</span>
+                <span id="deviaction_value">0.10</span>
+                <span id="deviaction_percent">+0.53%</span>
             </div>
         </div>
 
@@ -80,8 +80,8 @@
             <div class="num-item">涨跌幅：0.58</div>
         </div>
         <div class="num-dynamic">
-            <div class="num-item">今日最高：17.60</div>
-            <div class="num-item">委买一：300手</div>
+            <div id="dynamic_high" class="num-item">今日最高：17.60</div>
+            <div id="" class="num-item">委买一：300手</div>
             <div class="num-item">委卖一：400手</div>
             <div class="num-item">今日最低：17.27</div>
             <div class="num-item">竞买价：17.38</div>
@@ -91,15 +91,15 @@
 
     <div id="nav">
         <span>·</span>
-        <p class="nav-item active">基本图表</p>
+        <p id="show_basic" class="nav-item active" onclick="showBasic()">基本图表</p>
         <span>·</span>
-        <p class="nav-item">分析评估</p>
+        <p id="show_evaluate" class="nav-item" onclick="showEvaluate()">分析评估</p>
         <span>·</span>
-        <p class="nav-item">走势预测</p>
+        <p id="show_forecast" class="nav-item" onclick="showForecast()">走势预测</p>
         <span>·</span>
-        <p class="nav-item">实时分析</p>
+        <p id="show_dynamic" class="nav-item" onclick="showDynamic()">实时分析</p>
         <span>·</span>
-        <p class="nav-item">公司信息</p>
+        <p id="show_company" class="nav-item" onclick="showCompany()">公司信息</p>
         <span>·</span>
     </div>
 
@@ -157,7 +157,7 @@
 
     <div id="forecast" class="stock_content">
         <div id="forecast_one" class="stock_content_single">
-            <p class="stock_content_title"><img src="../img/logo_s.png">走势预测<span>(未来一天收盘价)</span></p>
+            <p class="stock_content_title"><img src="../img/logo_s.png">走势预测<span>(未来三天收盘价)</span></p>
             <div id="forecast_graph">
 
             </div>
