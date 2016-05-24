@@ -5,18 +5,31 @@
     box-sizing: border-box;
     display:flex;
 }
-.info hr{
+.hr_vertical{
     height:25px;
+    width:0;
     align-self: center;
-    color:#efefef;
-    border-color:#efefef;
+    /*color:#bac7d4;*/
+    border:none;
+    /*border-left:#bac7d4 1px solid;*/
+    border-right:rgba(255,255,255,0.2) 1px solid;
+}
+.hr_rank{
+    width:60px;
+    height:0;
+    position:absolute;
+    left:0;
+    top:40%;
+    border:none;
+    border-top:#bac7d4 1px solid;
+    /*border-bottom:#bac7d4 1px solid;*/
+    transform: rotate(-45deg) translate(0,0);
 }
 .name,.price,.rank,.operation{
     margin:0;
     display:flex;
     height:70px;
     box-sizing: border-box;
-    /*border:1px solid rgba(255,0,0,0.3);*/
 }
 .name{
     width:30%;
@@ -83,12 +96,7 @@
     position: relative;
 }
 .rank div hr{
-    width:60px;
-    height:0;
-    position:absolute;
-    left:0;
-    top:40%;
-    transform: rotate(-45deg) translate(0,0);
+
 }
 .rank h5{
     font-size:30px;
@@ -304,4 +312,16 @@
 }
 #forecast_graph {
     height:300px;
+}
+
+#stock_title_background{
+    position:absolute;
+    width:100%;
+    z-index: -1;
+}
+.info,#nav,.stock_content{
+    /*margin:0;*/
+    /*padding:10px;*/
+    /*background-color: rgba(0,0,0,0.3);*/
+    /*background-color: rgba(3,27,47,0.7);*/
 }

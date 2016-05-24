@@ -1,5 +1,6 @@
 body{
-    color:#e5e5e5;
+    /*color:#e5e5e5;*/
+    color:#bac7d4;
     font-weight: lighter;
     background-color: #031b2f;
 }
@@ -12,8 +13,11 @@ h1,h2,h3,h4,h5,h6{
     position:fixed;
     top:0;
     left:0;
-    background-color: #121c24;
-    /*box-shadow: 0 0 4px 1px #959595;*/
+    background-color: rgba(18,45,71,0.4);
+    z-index: 100;
+    box-shadow: 0 0 4px 1px rgba(18,28,36,0.4);
+
+    /*background-color: rgba(255,255,255,0.1);*/
 }
 .header-wrapper{
     margin:0 auto 0 auto;
