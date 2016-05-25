@@ -23,6 +23,10 @@
 .stock_blanket_item .stock_info h3{
     font-size:14px;
 }
+.see{
+    width:25px;
+    height:25px;
+}
 .stock_blanket button{
     margin:10px auto 5px 20px;
     width:120px;

@@ -127,9 +127,13 @@
     /*align-self: stretch;*/
 }
 .num-static{
+    display: flex;
+    justify-content: space-between;
     /*border:1px solid #000;*/
 }
 .num-dynamic{
+    display: flex;
+    justify-content: space-between;
     /*border:1px solid rgba(0,0,255,0.3);*/
 }
 .num-item{
@@ -155,8 +159,9 @@
     text-align: center;
 }
 #nav .nav-item{
-    padding:4px 20px 4px 20px;
-    width:120px;
+    margin:0 10px;
+    padding:4px 0 4px 0;
+    width:100px;
     /*height:46px;*/
     box-sizing: border-box;
     font-size:18px;
@@ -200,8 +205,26 @@
     width:100%;
     /*background-color: #bba887;*/
 }
-#grader_graph{
+#grade_graph{
     height:400px;
+    display: flex;
+    flex-direction: row;
+
+}
+#grade_radar{
+    width:50%;
+}
+#grade_zx{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.grade_zx_item{
+    margin:5px 0;
+    width:100%;
+    height:50px;
+    background-color: rgba(0,255,0,0.2);
 }
 #text_instruction{
     width:100%;
@@ -238,33 +261,54 @@
     padding:10px;
     flex-grow: 0;
     box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 #dynamic_number p{
-    margin:0 40px 10px 5px;
+    width:50%;
+    margin-bottom:4px;
+    font-size:14px;
+    box-sizing: border-box;
+    /*margin:0 40px 10px 5px;*/
+}
+#dynamic_number p:nth-child(odd){
+    margin-left:0;
+    padding-right:5px;
+}
+#dynamic_number p:nth-child(even){
+    margin-right:0;
 }
 #dynamic_number p span{
     margin-left:5px;
 }
-.dynamic_graph_wrapper{
+.row_wrapper{
+    display: flex;
+    flex-direction: row;
+}
+.column_wrapper{
     flex-grow:1;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
 }
-#dynamic_five_level{
-    height:50px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /*background-color: #eb6877;*/
+.dynamic_graph_wrapper{
+    flex-grow:1;
+}
+.dynamic_number_wrapper{
+    width:25%;
+    flex-grow:0;
+}
+#dynamic_number hr{
+    margin-left:0;
+    width:80%;
+    border:none;
+    border-top:1px #0b2a44 dashed;
 }
 #dynamic_graph{
+    padding-right:20px;
     height:300px;
-    /*background-color: #bba887;*/
-}
-.dynamic_five_level_item{
-    width:20%;
 }
 #company h1{
     padding:10px;
@@ -282,6 +326,7 @@
 .basic_graph_wrapper_k,.basic_graph_wrapper_other{
     margin-bottom: 20px;
 }
+
 .basic_graph_wrapper_k{
     width:100%;
 }

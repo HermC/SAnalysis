@@ -74,20 +74,21 @@
 
     <div class="info num">
         <div class="num-static">
-            <div id="dynamic_close" class="num-item">昨收：17.27</div>
-            <div id="dynamic_pb" class="num-item">市净率：1.09</div>
-            <div id="dynamic_turnover" class="num-item">换手率：0.62</div>
-            <div id="dynamic_open" class="num-item">今开：17.31</div>
-            <div id="dynamic_pe" class="num-item">市盈率：6.16</div>
-            <div id="dynamic_amplitude" class="num-item">振幅：0.58%</div>
+            <div id="static_open" class="num-item">今开：17.27</div>
+            <div id="static__high" class="num-item">最高：17.27</div>
+            <div id="static__devVal" class="num-item">涨跌：17.27</div>
+            <div id="static__close" class="num-item">昨收：17.31</div>
+            <div id="static__low" class="num-item">最低：6.16</div>
+            <div id="static__amplitude" class="num-item">振幅：0.58%</div>
         </div>
         <div class="num-dynamic">
-            <div id="dynamic_high" class="num-item">今日最高：17.60</div>
-            <!--<div class="num-item">委买一：300手</div>-->
-            <!--<div class="num-item">委卖一：400手</div>-->
-            <div id="dynamic_low" class="num-item">今日最低：17.27</div>
-            <!--<div class="num-item">竞买价：17.38</div>-->
-            <!--<div class="num-item">竞卖价：17.40</div>-->
+
+            <div id="static__volume" class="num-item">成交数：0.62</div>
+            <div id="static__pb" class="num-item">市净率：0.62</div>
+            <div id="static__adj" class="num-item">后复权价：0.62</div>
+            <div id="static__turnover" class="num-item">换手率：1.09</div>
+            <div id="static__pe" class="num-item">市盈率：1.09</div>
+            <div id="static__amount" class="num-item">成交金额：1.09</div>
         </div>
     </div>
 
@@ -144,17 +145,36 @@
     <div id="evaluate" class="stock_content">
         <div id="grade" class="stock_content_single">
             <div class="stock_content_title"><img src="../img/logo_s.png"><p>股票评分</p></div>
-            <div id="grader_graph">
+            <div id="grade_graph">
+                <div id="grade_radar">
 
+                </div>
+
+                <div id="grade_zx">
+                    <div id="grade_zx_pb" class="grade_zx_item">
+
+                    </div>
+                    <div id="grade_zx_pe" class="grade_zx_item">
+
+                    </div>
+                    <div id="grade_zx_upDown" class="grade_zx_item">
+
+                    </div>
+                    <div id="grade_zx_quantity_ratio" class="grade_zx_item">
+
+                    </div>
+                    <div id="grade_zx_weibi" class="grade_zx_item">
+
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        <div class="stock_content_wrapper">
-
-            <div id="bench_relative" class="stock_content_single">
-                <p class="stock_content_title"><img src="../img/logo_s.png">大盘相关性分析</p>
-            </div>
+        <div id="bench_relative" class="stock_content_single">
+            <p class="stock_content_title"><img src="../img/logo_s.png">大盘相关性分析</p>
         </div>
+
     </div>
 
     <div id="forecast" class="stock_content">
@@ -167,43 +187,55 @@
     </div>
 
     <div id="dynamic" class="stock_content">
-        <p class="stock_content_title"><img src="../img/logo_s.png">实时信息</p>
-        <div class="stock_content_wrapper">
-            <div id="dynamic_number">
-                <p id="dynamic_volume" class="dynamic_number_item">成交量:</p>
-                <p id="dynamic_up_stop" class="dynamic_number_item">涨停:<span>17.03</span></p>
-                <p id="dynamic_inner_count" class="dynamic_number_item">内盘:<span>1021手</span></p>
-                <p id="dynamic_amount" class="dynamic_number_item">成交额:<span>1亿</span></p>
-                <p id="dynamic_committee" class="dynamic_number_item">委比:<span>12</span></p>
-                <p id="dynamic_avail_amount" class="dynamic_number_item">流通市值:<span>1亿</span></p>
-                <p id="dynamic_profit_per" class="dynamic_number_item">每股收益:<span>12</span></p>
-                <p id="dynamic_total_volume" class="dynamic_number_item">总股本:<span>1亿</span></p>
-                <p id="dynamic_down_stop" class="dynamic_number_item">跌停:<span>12</span></p>
-                <p id="dynamic_outer_count" class="dynamic_number_item">外盘:<span>32手</span></p>
-                <p id="dynamic_quantity_ratio" class="dynamic_number_item">量比:<span>23</span></p>
-                <p id="dynamic_total_amount" class="dynamic_number_item">总市值:<span>32亿</span></p>
-                <p id="dynamic_value_per_stock" class="dynamic_number_item">每股净资产:<span>12</span></p>
-                <p id="dynamic_available_stock" class="dynamic_number_item">流通股本:<span>2亿</span></p>
-            </div>
 
-            <div class="dynamic_graph_wrapper">
-                <div id="dynamic_five_level">
-                    <p class="dynamic_five_level_item">卖一：15.74</p>
-                    <p class="dynamic_five_level_item">卖一：15.74</p>
-                    <p class="dynamic_five_level_item">卖一：15.74</p>
-                    <p class="dynamic_five_level_item">卖一：15.74</p>
-                    <p class="dynamic_five_level_item">卖一：15.74</p>
-                    <p class="dynamic_five_level_item">买一：15.74</p>
-                    <p class="dynamic_five_level_item">买一：15.74</p>
-                    <p class="dynamic_five_level_item">买一：15.74</p>
-                    <p class="dynamic_five_level_item">买一：15.74</p>
-                    <p class="dynamic_five_level_item">买一：15.74</p>
-                </div>
+        <div class="row_wrapper">
+            <div class="column_wrapper dynamic_graph_wrapper">
+                <p class="stock_content_title"><img src="../img/logo_s.png">实时交易</p>
+                <!--<div id="dynamic_five_level">-->
+
+                <!--</div>-->
                 <div id="dynamic_graph">
 
                 </div>
             </div>
+
+            <div class="column_wrapper dynamic_number_wrapper">
+                <p class="stock_content_title"><img src="../img/logo_s.png">论股堂</p>
+                <div id="dynamic_number">
+                    <p class="dynamic_five_level_item">卖一：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">买一：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">卖二：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">买二：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">卖三：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">买三：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">卖四：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">买四：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">卖五：<span>15.74</span></p>
+                    <p class="dynamic_five_level_item">买五：<span>15.74</span></p>
+
+                    <hr/>
+
+                    <p id="dynamic_inner_count" class="dynamic_number_item">内盘：<span>1021手</span></p>
+                    <p id="dynamic_outer_count" class="dynamic_number_item">外盘：<span>32手</span></p>
+                    <p id="dynamic_quantity_ratio" class="dynamic_number_item">量比：<span>23</span></p>
+                    <p id="dynamic_committee" class="dynamic_number_item">委比：<span>12</span></p>
+                    <p id="dynamic_volume" class="dynamic_number_item">成交量：1111手</p>
+                    <p id="dynamic_amount" class="dynamic_number_item">成交额：<span>1亿</span></p>
+                    <p id="dynamic_up_stop" class="dynamic_number_item">涨停：<span>17.03</span></p>
+                    <p id="dynamic_down_stop" class="dynamic_number_item">跌停：<span>12</span></p>
+                    <p id="dynamic_value_per_stock" class="dynamic_number_item">每股净资产：<span>12</span></p>
+                    <p id="dynamic_profit_per" class="dynamic_number_item">每股收益：<span>12</span></p>
+                    <p id="dynamic_total_volume" class="dynamic_number_item">总股本：<span>1亿</span></p>
+                    <p id="dynamic_total_amount" class="dynamic_number_item">总市值：<span>32亿</span></p>
+                    <p id="dynamic_available_stock" class="dynamic_number_item">流通股本：<span>2亿</span></p>
+                    <p id="dynamic_avail_amount" class="dynamic_number_item">流通市值：<span>1亿</span></p>
+                </div>
+            </div>
         </div>
+
+
+
+
 
         <div id="text_instruction" class="stock_content_single">
             <p class="stock_content_title"><img src="../img/logo_s.png">实时数值分析</p>

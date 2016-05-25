@@ -258,6 +258,7 @@ AmCharts.ready(function() {
     initFutureChart();
 
     showBasic();
+    //showDynamic();
 });
 
 function initDataSet() {
@@ -771,7 +772,7 @@ function initGradeChart() {
     radarChart.addGraph(graph);
 
     // WRITE
-    radarChart.write("grader_graph");
+    radarChart.write("grade_radar");
 }
 
 function initDynamicChart() {
