@@ -38,3 +38,9 @@ h2{
     margin:0 auto 0 auto;
     width:80vw;
 }
+
+#stock_title_background{
+    position:absolute;
+    width:100%;
+    z-index: -1;
+}

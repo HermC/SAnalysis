@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/industry.css">
 </head>
+
 <body>
+<img id="full_background" src="../img/background/background1.png">
 <div id="header">
     <div class="header-wrapper">
         <div class="logo"><span>A</span>scending</div>
@@ -28,8 +30,8 @@
             <p class="stock_content_title"><img src="../img/logo_s.png">行业热门榜</p>
             <table id="industry_rank_hot" class="industry_rank_value">
                 <tr>
-                    <th>排名</th>
-                    <th>股票</th>
+                    <th class="column_rank">排名</th>
+                    <th class="column_name">行业</th>
                     <th>换手率</th>
                 </tr>
                 <tr>
@@ -63,9 +65,9 @@
             <p class="stock_content_title"><img src="../img/logo_s.png">行业涨幅榜</p>
             <table id="industry_rank_up" class="industry_rank_value">
                 <tr>
-                    <th>排名</th>
-                    <th>股票</th>
-                    <th>换手率</th>
+                    <th class="column_rank">排名</th>
+                    <th class="column_name">行业</th>
+                    <th>涨幅</th>
                 </tr>
                 <tr>
                     <td>1</td>
@@ -98,9 +100,9 @@
             <p class="stock_content_title"><img src="../img/logo_s.png">行业股价榜</p>
             <table id="industry_rank_price" class="industry_rank_value">
                 <tr>
-                    <th>排名</th>
-                    <th>股票</th>
-                    <th>换手率</th>
+                    <th class="column_rank">排名</th>
+                    <th class="column_name">行业</th>
+                    <th>股价</th>
                 </tr>
                 <tr>
                     <td>1</td>
@@ -136,13 +138,13 @@
             <p class="stock_content_title"><img src="../img/logo_s.png">行业评分榜</p>
             <table id="industry_rank_total"  class="industry_rank_total">
                 <tr>
-                    <th>排名</th>
-                    <th>行业</th>
+                    <th class="column_rank">排名</th>
+                    <th class="column_name">行业</th>
                     <th>总分</th>
+                    <th>市盈率</th>
                     <th>市净率</th>
                     <th>涨跌幅</th>
                     <th>量比</th>
-                    <th>市盈率</th>
                     <th>委托盘</th>
                 </tr>
                 <tr>
@@ -167,7 +169,7 @@
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>金融业</td>
+                    <td>有色金属冶炼有色金属冶炼</td>
                     <td>98</td>
                     <td>23</td>
                     <td>23</td>

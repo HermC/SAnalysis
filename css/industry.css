@@ -1,3 +1,6 @@
+body{
+    color:#ddd;
+}
 .main-content{
     display: flex;
     flex-direction: column;
@@ -5,9 +8,10 @@
 .industry_rank{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 .industry_rank_wrapper{
-    width:100%;
+    /*width:100%;*/
 }
 .industry_rank_value{
     margin-bottom:30px;
@@ -15,25 +19,39 @@
 .industry_rank table{
     display: block;
 }
+table{
+    border-spacing: 5px 5px;
+}
 tr{
     height:25px;
-    margin-top:20px;
+    margin-top:40px;
 }
 .industry_rank th,.industry_rank td{
-    padding-right:20px;
+    /*min-width: 60px;*/
+    /*padding-right:20px;*/
 }
-.industry_rank_total{
-    /*height:400px;*/
+.industry_rank_total tr{
+    margin:5px 0 5px 0;
+    padding:5px 0 5px 0;
 }
 #industry_rank_total th,#industry_rank_total td,#stock_rank_total th,#stock_rank_total td{
-    padding-right:40px;
+    padding-right:30px;
+    padding-bottom: 10px;
 }
 #stock_rank_total td span{
     font-size:12px;
 }
-.industry_rank_grade_wrapper{
-    flex-grow: 1;
+/*.industry_rank_grade_wrapper{*/
+    /*flex-grow: 1;*/
+/*}*/
+/*.stock_rank_grade_wrapper{*/
+    /*flex-grow: 0;*/
+/*}*/
+.column_rank{
+    width:45px;
+    padding-right:0;
 }
-.stock_rank_grade_wrapper{
-    flex-grow: 0;
+.column_name{
+    width:100px;
+    padding-right: 20px;
 }
