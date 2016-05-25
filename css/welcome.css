@@ -1,0 +1,40 @@
+body,h1,h2,h3,h4,h5,h6{
+    font-weight: lighter;
+}
+body{
+    overflow-x: hidden;
+}
+.block_one{
+    width:100vw;
+    height:100vh;
+}
+.block_two{
+    width:100vw;
+    height:50vh;
+}
+#coverage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../img/background/welcome_back1.png') no-repeat top;
+    background-size: cover;
+    background-position: center;
+}
+h1{
+    font-weight: lighter;
+    font-size: 60px;
+    color:#ffde00;
+}
+h2{
+    font-size: 18px;
+    color:#fff;
+}
+
+#brief_intro{
+    background-color: #021a2f;
+}
+.brief_intro_wrapper{
+    margin:0 auto 0 auto;
+    width:80vw;
+}
