@@ -200,12 +200,14 @@ function generateStocksData() {
             var totalMoney = volume * 10 * Math.random();
             var KD = Math.random();
             var RSI = Math.random();
+            var boll = Math.random()*2;
 
             tmp["MACD"] = MACD.toFixed(2);
             tmp["volume"] = volume.toFixed(2);
             tmp["totalMoney"] = totalMoney.toFixed(2);
             tmp["KD"] = KD.toFixed(2);
             tmp["RSI"] = RSI.toFixed(2);
+            tmp["boll"] = boll.toFixed(2);
             other_data.push(tmp);
 
         }

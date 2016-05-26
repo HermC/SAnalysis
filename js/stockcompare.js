@@ -36,7 +36,8 @@ var MACDData = [];
 var volumeData = [];
 var totalMoneyData = [];
 var RSIData = [];
-var KDData = [];
+var KDJData = [];
+var bollData = [];
 
 var radarChart;
 var futureChart;
@@ -58,6 +59,7 @@ AmCharts.ready(function() {
     //initTotalMoneyChart();
     initKDChart();
     initRSIChart();
+    initBollChart();
 });
 
 var charts;
@@ -94,6 +96,7 @@ function generateChartsData() {
         var totalMoneyJson = {"date": date};
         var RSIJson = {"date": date};
         var KDJson = {"date": date};
+        var bollJson = {"date": date};
 
         for(j=0;j<stocksData.length;j++){
             var id = stocksData[j].id;
@@ -105,6 +108,7 @@ function generateChartsData() {
             totalMoneyJson[id] = otherData[i].totalMoney;
             RSIJson[id] = otherData[i].RSI;
             KDJson[id] = otherData[i].KD;
+            bollJson[id] = otherData[i].boll;
         }
 
         //futureData.push(futureJson);
@@ -112,7 +116,8 @@ function generateChartsData() {
         volumeData.push(volumeJson);
         totalMoneyData.push(totalMoneyJson);
         RSIData.push(RSIJson);
-        KDData.push(KDJson);
+        KDJData.push(KDJson);
+        bollData.push(bollJson);
     }
 
     for(i=0;i<3;i++){
@@ -255,9 +260,9 @@ function initMACDChart() {
     legend.position = "top";
     MACDChart.legend = legend;
 
-    var scrollbar = new AmCharts.ChartScrollbar();
-    scrollbar.graphType = "line";
-    MACDChart.addChartScrollbar(scrollbar);
+    //var scrollbar = new AmCharts.ChartScrollbar();
+    //scrollbar.graphType = "line";
+    //MACDChart.addChartScrollbar(scrollbar);
 
     var chartCursor = new AmCharts.ChartCursor();
     chartCursor.cursorPosition = "mouse";
@@ -424,7 +429,7 @@ function initRSIChart() {
 
 function initKDChart() {
     KDChart = new AmCharts.AmSerialChart();
-    KDChart.dataProvider = KDData;
+    KDChart.dataProvider = KDJData;
     KDChart.categoryField = "date";
     KDChart.dataDateFormat = "YYYY-MM-DD";
 
@@ -474,7 +479,54 @@ function initKDChart() {
 }
 
 function initBollChart() {
+    bollChart = new AmCharts.AmSerialChart();
+    bollChart.dataProvider = bollData;
+    bollChart.categoryField = "date";
+    bollChart.dataDateFormat = "YYYY-MM-DD";
 
+    var categoryAxis = bollChart.categoryAxis;
+    categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+    categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
+    categoryAxis.autoGridCount = false;
+    categoryAxis.gridCount = 50;
+    categoryAxis.gridAlpha = 0.1;
+    categoryAxis.gridColor = "#000000";
+    categoryAxis.axisColor = "#555555";
+    // we want custom date formatting, so we change it in next line
+    categoryAxis.dateFormats = [{
+        period: 'DD',
+        format: 'DD'
+    }, {
+        period: 'WW',
+        format: 'MMM DD'
+    }, {
+        period: 'MM',
+        format: 'MMM'
+    }, {
+        period: 'YYYY',
+        format: 'YYYY'
+    }];
+
+    for(var i=0;i<stocksData.length;i++){
+        var graph = new AmCharts.AmGraph();
+        graph.type = "line";
+        graph.title = stocksData[i].id;
+        graph.valueField = stocksData[i].id;
+        graph.fillAlphas = 0;
+        bollChart.addGraph(graph);
+    }
+
+    var legend = new AmCharts.AmLegend();
+    legend.labelText = "[[title]]";
+    legend.position = "top";
+    bollChart.legend = legend;
+
+    var chartCursor = new AmCharts.ChartCursor();
+    chartCursor.cursorPosition = "mouse";
+    chartCursor.pan = true; // set it to fals if you want the cursor to work in "select" mode
+    bollChart.addChartCursor(chartCursor);
+
+    bollChart.write('boll_graph');
 }
 
 function zoomChart(chart, chartData) {
