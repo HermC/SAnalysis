@@ -553,7 +553,7 @@ function deleteCompareStocks(id) {
     }
 
     stocks.splice(index, 1);
-    //stocksData.splice(index, 1);
+    //stocksData.splice(index, 1);//todo
 
     if(stocks.length==0){
         $.cookie("compareStock", null, {
@@ -613,6 +613,7 @@ function updateData() {
         }
         //stocks = currentStocks;
         $.ajax({
+
             success: function(data) {
 
             }
