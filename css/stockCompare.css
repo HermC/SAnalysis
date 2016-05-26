@@ -28,9 +28,16 @@
     font-size:14px;
 }
 .see{
+    min-width: 25px;
     width:25px;
     height:25px;
     cursor: pointer;
+    background: url("../img/see.png");
+    background-size: cover;
+}
+.hide{
+    background: url("../img/see-o.png");
+    background-size: cover;
 }
 .delete{
     margin-right:40px;
@@ -39,7 +46,7 @@
     cursor: pointer;
 }
 .stock_blanket button{
-    margin:10px auto 5px 20px;
+    margin:10px auto 5px 40px;
     width:120px;
     height:35px;
     display: block;
@@ -86,4 +93,11 @@
 }
 #boll_graph {
     height:300px;
+}
+#add{
+    width:20px;
+    height:20px;
+    margin-left:auto;
+    margin-right:45px;
+    cursor: pointer;
 }
