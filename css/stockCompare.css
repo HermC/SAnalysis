@@ -12,9 +12,12 @@
     padding:10px 0 10px 0;
     display:flex;
     flex-direction: row;
+    justify-content:space-between;
     align-items: center;
 }
 .stock_blanket_item .stock_info{
+    margin-left: 0;
+    margin-right:auto;
     padding-left:20px;
     padding-right: 20px;
 }
@@ -30,6 +33,7 @@
     cursor: pointer;
 }
 .delete{
+    margin-right:40px;
     width:20px;
     height:20px;
     cursor: pointer;
