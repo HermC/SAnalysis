@@ -12,9 +12,12 @@
     padding:10px 0 10px 0;
     display:flex;
     flex-direction: row;
+    justify-content:space-between;
     align-items: center;
 }
 .stock_blanket_item .stock_info{
+    margin-left: 0;
+    margin-right:auto;
     padding-left:20px;
     padding-right: 20px;
 }
@@ -25,17 +28,25 @@
     font-size:14px;
 }
 .see{
+    min-width: 25px;
     width:25px;
     height:25px;
     cursor: pointer;
+    background: url("../img/see.png");
+    background-size: cover;
+}
+.hide{
+    background: url("../img/see-o.png");
+    background-size: cover;
 }
 .delete{
+    margin-right:40px;
     width:20px;
     height:20px;
     cursor: pointer;
 }
 .stock_blanket button{
-    margin:10px auto 5px 20px;
+    margin:10px auto 5px 40px;
     width:120px;
     height:35px;
     display: block;
@@ -82,4 +93,11 @@
 }
 #boll_graph {
     height:300px;
+}
+#add{
+    width:20px;
+    height:20px;
+    margin-left:auto;
+    margin-right:45px;
+    cursor: pointer;
 }

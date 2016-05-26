@@ -15,8 +15,10 @@
     <script type="text/javascript" rel="script" src="../js/amcharts/serial.js"></script>
     <script type="text/javascript" rel="script" src="../js/amcharts/radar.js"></script>
     <script type="text/javascript" rel="script" src="../js/amcharts/themes/dark.js"></script>
+    <script type="text/javascript" rel="script" src="../js/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
     <script type="text/javascript" rel="script" src="../js/generatedata.js"></script>
     <script type="text/javascript" rel="script" src="../js/stockcompare.js"></script>
+    <script type="text/javascript" rel="script" src="../js/stockCompareZXZ.js"></script>
 </head>
 <body>
 <div id="header">
@@ -32,12 +34,12 @@
     </div>
 </div>
 
-<div class="main-content">
-    <div class="stock_blanket">
-        <p class="stock_content_title"><img src="../img/logo_s.png">对比股票</p>
-        <ul>
-            <li class="stock_blanket_item">
-                <img class="see" src="../img/see.png">
+<div id="main-content" class="main-content">
+    <div id="blanket_wrapper" class="stock_blanket">
+        <p class="stock_content_title"><img src="../img/logo_s.png">对比股票<img id="add" src="../img/add.png"></p>
+        <ul id="blanket">
+            <li id="1" class="stock_blanket_item display">
+                <div class="see"></div>
                 <div class="stock_info">
                     <h2>浦发银行</h2>
                     <h3>sh600000</h3>
@@ -45,36 +47,36 @@
                 <img class="delete" src="../img/delete.png">
             </li>
 
-            <li class="stock_blanket_item">
-                <img class="see" src="../img/see.png">
+            <li id="2" class="stock_blanket_item display">
+                <div class="see"></div>
                 <div class="stock_info">
                     <h2>浦发银行</h2>
-                    <h3>sh600000</h3>
+                    <h3>sh600001</h3>
                 </div>
                 <img class="delete" src="../img/delete.png">
             </li>
 
-            <li class="stock_blanket_item">
-                <img class="see" src="../img/see.png">
+            <li id="3" class="stock_blanket_item display">
+                <div class="see"></div>
                 <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600000</h3>
+                    <h2>浦发银行浦发银行</h2>
+                    <h3>sh600002</h3>
                 </div>
                 <img class="delete" src="../img/delete.png">
             </li>
 
-            <li class="stock_blanket_item">
-                <img class="see" src="../img/see.png">
+            <li id="4" class="stock_blanket_item display">
+                <div class="see"></div>
                 <div class="stock_info">
                     <h2>浦发银行</h2>
-                    <h3>sh600000</h3>
+                    <h3>sh600003</h3>
                 </div>
                 <img class="delete" src="../img/delete.png">
             </li>
         </ul>
 
-        <button>清空列表</button>
-
+        <button id="clear">清空列表</button>
+        <!--<button id="add">新增</button>-->
 
     </div>
 
