@@ -8,6 +8,13 @@
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/industry.css">
+
+    <script>
+        var industry_stock = ${industryStocks};
+//        console.log(industry_stock);
+    </script>
+    <script type="text/javascript" rel="script" src="../js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" rel="script" src="../js/industry.js"></script>
 </head>
 
 <body>
@@ -140,84 +147,112 @@
                 <tr>
                     <th class="column_rank">排名</th>
                     <th class="column_name">行业</th>
-                    <th>总分</th>
-                    <th>市盈率</th>
-                    <th>市净率</th>
-                    <th>涨跌幅</th>
-                    <th>量比</th>
-                    <th>委托盘</th>
+                    <th class="column_grade">总分</th>
+
+                    <th class="column_grade column_toggle">市盈率</th>
+                    <th class="column_grade column_toggle">市净率</th>
+                    <th class="column_grade column_toggle">涨跌幅</th>
+                    <th class="column_grade column_toggle">量比</th>
+                    <th class="column_grade column_toggle">委托盘</th>
                 </tr>
+
                 <tr>
                     <td>1</td>
                     <td>金融业</td>
                     <td>98</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
                 </tr>
                 <tr>
-                    <td>1</td>
+                    <td>2</td>
                     <td>金融业</td>
                     <td>98</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
                 </tr>
                 <tr>
-                    <td>1</td>
-                    <td>有色金属冶炼有色金属冶炼</td>
-                    <td>98</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                </tr>
-                <tr>
-                    <td>1</td>
+                    <td>3</td>
                     <td>金融业</td>
                     <td>98</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>金融业</td>
+                    <td>98</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
                 </tr>
 
             </table>
         </div>
 
         <div class="stock_rank_grade_wrapper">
-            <p class="stock_content_title"><img src="../img/logo_s.png">股票评分榜</p>
+            <p class="stock_content_title"><img src="../img/logo_s.png">股票评分榜<button id="more">&lt;&lt;</button></p>
             <table id="stock_rank_total"  class="industry_rank_total">
                 <tr>
-                    <th>排名</th>
-                    <th>股票</th>
-                    <th>总分</th>
+                    <th class="column_rank">排名</th>
+                    <th class="column_name_id">股票</th>
+                    <th class="column_last">总分</th>
+
+                    <th class="column_grade column_toggle column_hide">市盈率</th>
+                    <th class="column_grade column_toggle column_hide">市净率</th>
+                    <th class="column_grade column_toggle column_hide">涨跌幅</th>
+                    <th class="column_grade column_toggle column_hide">量比</th>
+                    <th class="column_grade column_toggle column_hide">委托盘</th>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>浦发银行<span>sh600000</span></td>
                     <td>96</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>浦发银行<span>sh600000</span></td>
                     <td>96</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>浦发银行<span>sh600000</span></td>
                     <td>96</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>浦发银行<span>sh600000</span></td>
                     <td>96</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
+                    <td class="column_toggle column_hide">23</td>
                 </tr>
             </table>
         </div>
