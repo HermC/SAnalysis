@@ -4,17 +4,11 @@
     /*flex-wrap:wrap;*/
 }
 .self_items{
-    display: flex;
-    flex-direction: row;
-    /*justify-content: space-between;*/
-    flex-wrap: wrap;
 }
 .self_item{
-    margin-top:30px;
-    /*margin-right:5%;*/
-    padding:10px 10px 10px 10px;
+    margin-top:15px;
+    padding:0 10px 0 10px;
     width:100%;
-    /*height:350px;*/
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
@@ -23,20 +17,47 @@
 }
 .self_item_title{
     display: flex;
-    width:100%;
     flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
-    /*background-color: #eb6877;*/
 }
-.self_item_title_name{
+.self_item_info{
+    width:25%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.self_item_info_2{
+    margin-top:5px;
+    font-size:14px;
+}
+.self_item_info_2 span{
+    margin-left:8px;
+}
+.industry_logo{
+    width:40px;
+    height:40px;
+    margin-right:15px;
+}
+.self_item_name{
     font-size:20px;
 }
-.self_item_title_operation{
+.self_item_name span{
+    font-size:14px;
+}
+.self_item_operation{
+    display: inline-block;
     margin-left:auto ;
 }
-#self_item_graph{
-    padding:10px 0 ;
-    height:150px;
+.self_item_operation img{
+    margin-left:10px;
+}
+.self_item_graph{
+    margin:0 40px;
+    width:43%;
+    height:60px;
+    background-color: rgba(255,0,0,0.2);
 }
 .self_item_values{
     display: flex;
@@ -44,4 +65,43 @@
 }
 .self_item_values p{
     width:50%;
+}
+
+.rank{
+    margin:0;
+    display:inline-flex;
+    height:70px;
+    box-sizing: border-box;
+}
+
+.rank h6{
+    font-size:12px;
+    padding:10px 10px 10px 30px;
+    align-self:flex-end;
+}
+.rank div{
+    display: flex;
+    position: relative;
+}
+.rank h5{
+    font-size:30px;
+}
+.rank .stock-rank{
+    padding-top:8px;
+    align-self: flex-start;
+}
+.rank .industry-total{
+    padding-bottom:8px;
+    align-self: flex-end;
+}
+.hr_rank{
+    width:60px;
+    height:0;
+    position:absolute;
+    left:0;
+    top:40%;
+    border:none;
+    border-top:#bac7d4 1px solid;
+    /*border-bottom:#bac7d4 1px solid;*/
+    transform: rotate(-45deg) translate(0,0);
 }
