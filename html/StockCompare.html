@@ -9,7 +9,27 @@
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/stockCompare.css">
     <link rel="stylesheet" type="text/css" href="../plugin/perfect-scrollbar/dist/css/perfect-scrollbar.min.css">
-
+    <script>
+        var stockList = [{
+            "id":"sh600000",
+            "name":"浦发银行"
+        },{
+            "id":"sh600001",
+            "name":"浦财银行"
+        },{
+            "id":"sh600002",
+            "name":"浦宝银行"
+        },{
+            "id":"sh600003",
+            "name":"浦进银行"
+        },{
+            "id":"sh600004",
+            "name":"浦长银行"
+        },{
+            "id":"sh600005",
+            "name":"浦命银行"
+        }];
+    </script>
     <script type="text/javascript" rel="script" src="../js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" rel="script" src="../js/jquery.cookie.js"></script>
     <script type="text/javascript" rel="script" src="../js/amcharts/amcharts.js"></script>
@@ -58,114 +78,23 @@
 </div>
 
 <div id="main-content" class="main-content">
+    <!--<div id="blanket_wrapper" class="stock_blanket">-->
+        <!--<div class="add_input_wrapper">-->
+            <!--<input id="add_input" type="text" placeholder="搜索股票名字或id">-->
+            <!--<img id="add_input_clear" src="../img/add.png">-->
+        <!--</div>-->
+        <!--<h6>点击搜索结果添加至对比列表中</h6>-->
+        <!--<ul class="add_result_wrapper">-->
+        <!--</ul>-->
+    <!--</div>-->
     <div id="blanket_wrapper" class="stock_blanket">
         <p class="stock_content_title"><img src="../img/logo_s.png">对比股票<img id="add" src="../img/add.png"></p>
-
         <ul id="blanket" class="">
             <li id="1" class="stock_blanket_item display">
                 <div class="see"></div>
                 <div class="stock_info">
                     <h2>浦发银行</h2>
                     <h3>sh600000</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li id="2" class="stock_blanket_item display">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600001</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li id="3" class="stock_blanket_item display">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行浦发银行</h2>
-                    <h3>sh600002</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li id="4" class="stock_blanket_item display">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li class="stock_blanket_item">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li class="stock_blanket_item">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li class="stock_blanket_item">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li class="stock_blanket_item">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li class="stock_blanket_item">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li class="stock_blanket_item">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li class="stock_blanket_item">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
-                </div>
-                <img class="delete" src="../img/delete.png">
-            </li>
-
-            <li class="stock_blanket_item">
-                <div class="see"></div>
-                <div class="stock_info">
-                    <h2>浦发银行</h2>
-                    <h3>sh600003</h3>
                 </div>
                 <img class="delete" src="../img/delete.png">
             </li>

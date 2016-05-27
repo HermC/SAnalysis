@@ -10,7 +10,7 @@ window.onload = function(){
 
     toggleSearch();
     inputListener();
-
+    addInputListener();
     blanketLinstener();
     clear();
     addInit();
@@ -27,6 +27,50 @@ window.onload = function(){
     //需要初始化num_display,
 };
 
+var blanketContent;
+
+function addInputListener(){
+    $("#blanket_wrapper").on("click","#add",function(){
+        blanketContent = $("#blanket_wrapper").html();
+       $("#blanket_wrapper").html(
+            '<div class="add_input_wrapper">'+
+            '<input id="add_input" type="text" placeholder="搜索股票名字或id">'+
+            '<img id="add_input_clear" src="../img/add.png">'+
+            '</div>'+
+            '<h6>点击搜索结果添加至对比列表中</h6>'+
+            '<ul class="add_result_wrapper">'+
+            '</ul>'
+       );
+        add_search("");
+    }).on("click","#add_input_clear",function(){
+        $("#blanket_wrapper").html(blanketContent);
+    }).on("click","li",function(){
+        $("#blanket_wrapper").html(blanketContent);
+        //TODO
+        console.log($(this).find("span").html());
+    });
+
+    $("#blanket_wrapper").on("input propertychange","#add_input",function(){
+        var searchContent = $(this).val();
+        add_search(searchContent);
+    });
+}
+
+function add_search(search){
+    var searchResult = '';
+    var resultNum = 0;
+    var tempId;
+    var tempName;
+    for(var i = 0;i < stockList.length && resultNum < 10;i++){
+        tempId = stockList[i].id+"";
+        tempName = stockList[i].name+"";
+        if(tempId.indexOf(search) != -1 || tempName.indexOf(search) != -1){
+            searchResult +='<li><h5>'+tempName+'</h5><span>'+tempId+'</span></li>';
+            resultNum ++;
+        }
+    }
+    $(".add_result_wrapper").html(searchResult);
+}
 
 function blanketLinstener(){
     $("#blanket").on("click",".see",function(){
