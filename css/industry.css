@@ -33,17 +33,23 @@ tr{
     left:-18px;
 }
 .select{
-    margin-top:1px;
-    margin-bottom:11px;
+    margin-top:10px;
+    margin-bottom:30px;
     display: block;
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
     border-left: 10px solid #ffde00;
     border-bottom: 10px solid transparent;
-    opacity: 0;
+    /*opacity: 0;*/
 }
-.industry_rank_total tr:hover{
+#pointer{
+    position:absolute;
+}
+#industry_rank_total td{
+    height:40px;
+}
+#industry_rank_total tr:hover{
     background: #3a4f60;
 }
 .industry_rank th,.industry_rank td{
@@ -100,4 +106,11 @@ th:nth-child(last){
 }
 .rotate1{
     transform: rotate(180deg);
+}
+
+#stockListWrapper{
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
 }
