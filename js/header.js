@@ -1,7 +1,7 @@
-window.onload = function(){
-    toggleSearch();
-    inputListener();
-};
+//window.onload = function(){
+//    toggleSearch();
+//    inputListener();
+//};
 
 function toggleSearch(){
     $("#search_toggle").bind("click",function(){
@@ -30,13 +30,15 @@ function inputListener(){
 
 function search(search){
     var searchResult = '<h5>搜索结果：</h5>';
+    var resultNum = 0;
     var tempId;
     var tempName;
-    for(var i = 0;i < stockList.length && i < 10;i++){
+    for(var i = 0;i < stockList.length && resultNum < 10;i++){
         tempId = stockList[i].id+"";
         tempName = stockList[i].name+"";
         if(tempId.indexOf(search) != -1 || tempName.indexOf(search) != -1){
-            searchResult +='<h6>'+tempName+' '+tempId+'</h6>';
+            searchResult +='<h6><span>'+tempName+'</span>'+tempId+'</h6>';
+            resultNum ++;
         }
     }
     $(".search_result").html(searchResult);

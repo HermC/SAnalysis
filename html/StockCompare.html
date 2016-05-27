@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/stockCompare.css">
+    <link rel="stylesheet" type="text/css" href="../plugin/perfect-scrollbar/dist/css/perfect-scrollbar.min.css">
 
     <script type="text/javascript" rel="script" src="../js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" rel="script" src="../js/jquery.cookie.js"></script>
@@ -16,28 +17,51 @@
     <script type="text/javascript" rel="script" src="../js/amcharts/radar.js"></script>
     <script type="text/javascript" rel="script" src="../js/amcharts/themes/dark.js"></script>
     <script type="text/javascript" rel="script" src="../js/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script type="text/javascript" rel="script" src="../plugin/perfect-scrollbar/dist/js/perfect-scrollbar.js"></script>
     <script type="text/javascript" rel="script" src="../js/generatedata.js"></script>
     <script type="text/javascript" rel="script" src="../js/stockcompare.js"></script>
     <script type="text/javascript" rel="script" src="../js/stockCompareZXZ.js"></script>
+    <script type="text/javascript" rel="script" src="../js/header.js"></script>
 </head>
 <body>
 <div id="header">
     <div class="header-wrapper">
         <div class="logo"><span>A</span>scending</div>
+        <div class="input-wrapper" style="display: none">
+            <div class="search-icon"></div>
+            <input id="search_input" type="text" placeholder="输入股票id或名字">
+        </div>
+
         <ul class="menu">
-            <li>推荐</li>
-            <li>行业</li>
-            <li>对比</li>
-            <li>收藏</li>
-            <li><img src="../img/search.png"/></li>
+            <li id="search_toggle" class="search-icon">
+            </li>
+            <li class="menu-item">推荐</li>
+            <li class="menu-item">行业</li>
+            <li class="menu-item">对比</li>
+            <li class="menu-item">收藏</li>
         </ul>
+    </div>
+    <div class="full" style="display: none">
+        <div class="search_result-wrapper">
+            <div class="header-wrapper">
+                <div class="search_result">
+                    <h5>搜索结果：</h5>
+                    <h6><span>浦发银行</span> sh600000</h6>
+                    <h6><span>浦发银行银行和</span> sh600000</h6>
+                    <h6><span>浦发银行</span> sh600000</h6>
+                    <h6><span>浦发银行</span> sh600000</h6>
+                    <h6><span>浦发银行</span> sh600000</h6>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <div id="main-content" class="main-content">
     <div id="blanket_wrapper" class="stock_blanket">
         <p class="stock_content_title"><img src="../img/logo_s.png">对比股票<img id="add" src="../img/add.png"></p>
-        <ul id="blanket">
+
+        <ul id="blanket" class="">
             <li id="1" class="stock_blanket_item display">
                 <div class="see"></div>
                 <div class="stock_info">
@@ -73,11 +97,81 @@
                 </div>
                 <img class="delete" src="../img/delete.png">
             </li>
+
+            <li class="stock_blanket_item">
+                <div class="see"></div>
+                <div class="stock_info">
+                    <h2>浦发银行</h2>
+                    <h3>sh600003</h3>
+                </div>
+                <img class="delete" src="../img/delete.png">
+            </li>
+
+            <li class="stock_blanket_item">
+                <div class="see"></div>
+                <div class="stock_info">
+                    <h2>浦发银行</h2>
+                    <h3>sh600003</h3>
+                </div>
+                <img class="delete" src="../img/delete.png">
+            </li>
+
+            <li class="stock_blanket_item">
+                <div class="see"></div>
+                <div class="stock_info">
+                    <h2>浦发银行</h2>
+                    <h3>sh600003</h3>
+                </div>
+                <img class="delete" src="../img/delete.png">
+            </li>
+
+            <li class="stock_blanket_item">
+                <div class="see"></div>
+                <div class="stock_info">
+                    <h2>浦发银行</h2>
+                    <h3>sh600003</h3>
+                </div>
+                <img class="delete" src="../img/delete.png">
+            </li>
+
+            <li class="stock_blanket_item">
+                <div class="see"></div>
+                <div class="stock_info">
+                    <h2>浦发银行</h2>
+                    <h3>sh600003</h3>
+                </div>
+                <img class="delete" src="../img/delete.png">
+            </li>
+
+            <li class="stock_blanket_item">
+                <div class="see"></div>
+                <div class="stock_info">
+                    <h2>浦发银行</h2>
+                    <h3>sh600003</h3>
+                </div>
+                <img class="delete" src="../img/delete.png">
+            </li>
+
+            <li class="stock_blanket_item">
+                <div class="see"></div>
+                <div class="stock_info">
+                    <h2>浦发银行</h2>
+                    <h3>sh600003</h3>
+                </div>
+                <img class="delete" src="../img/delete.png">
+            </li>
+
+            <li class="stock_blanket_item">
+                <div class="see"></div>
+                <div class="stock_info">
+                    <h2>浦发银行</h2>
+                    <h3>sh600003</h3>
+                </div>
+                <img class="delete" src="../img/delete.png">
+            </li>
         </ul>
 
         <button id="clear">清空列表</button>
-        <!--<button id="add">新增</button>-->
-
     </div>
 
     <div class="compare_main">

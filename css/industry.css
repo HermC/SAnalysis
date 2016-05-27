@@ -27,7 +27,23 @@ tr{
     margin-top:40px;
     cursor:pointer;
 }
-tr:hover{
+.pointers{
+    position: absolute;
+    top:380px;
+    left:-18px;
+}
+.select{
+    margin-top:1px;
+    margin-bottom:11px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #ffde00;
+    border-bottom: 10px solid transparent;
+    opacity: 0;
+}
+.industry_rank_total tr:hover{
     background: #3a4f60;
 }
 .industry_rank th,.industry_rank td{

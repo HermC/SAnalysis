@@ -4,6 +4,14 @@
 .stock_blanket{
     width:25%;
 }
+#blanket{
+    display: block;
+    position: relative;
+    max-height: 70vh;
+    height:70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 .compare_main{
     width:75%;
 }

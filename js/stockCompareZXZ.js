@@ -4,11 +4,13 @@ var num_display;
 var displayList = [1,1,1,1];
 
 window.onload = function(){
+    toggleSearch();
+    inputListener();
     blanketLinstener();
     clear();
     addStock();
     scrollMagic();
-
+    perfectScroll();
     num_display = 4;
     //TODO
     //需要初始化num_display,
@@ -74,14 +76,16 @@ function addStock(name,id){
 }
 
 function scrollMagic(){
-
-
     var controller = new ScrollMagic.Controller();
 
     var pinBlanket = new ScrollMagic.Scene()
         .addTo(controller)
         .setPin("#blanket_wrapper");
+}
 
-
-
+function perfectScroll(){
+    console.log("ps");
+    var blanket = document.querySelector("#blanket");
+    Ps.initialize(blanket);
+    $(".ps-scrollbar-x-rail").hide();
 }

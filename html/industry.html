@@ -10,11 +10,12 @@
     <link rel="stylesheet" type="text/css" href="../css/industry.css">
 
     <script>
-        var industry_stock = ${industryStocks};
+//        var industry_stock = ${industryStocks};
 //        console.log(industry_stock);
     </script>
     <script type="text/javascript" rel="script" src="../js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" rel="script" src="../js/industry.js"></script>
+    <script type="text/javascript" rel="script" src="../js/header.js"></script>
 </head>
 
 <body>
@@ -22,13 +23,33 @@
 <div id="header">
     <div class="header-wrapper">
         <div class="logo"><span>A</span>scending</div>
+        <div class="input-wrapper" style="display: none">
+            <div class="search-icon"></div>
+            <input id="search_input" type="text" placeholder="输入股票id或名字">
+        </div>
+
         <ul class="menu">
-            <li>推荐</li>
-            <li>行业</li>
-            <li>对比</li>
-            <li>收藏</li>
-            <li><img src="../img/search.png"/></li>
+            <li id="search_toggle" class="search-icon">
+            </li>
+            <li class="menu-item">推荐</li>
+            <li class="menu-item">行业</li>
+            <li class="menu-item">对比</li>
+            <li class="menu-item">收藏</li>
         </ul>
+    </div>
+    <div class="full" style="display: none">
+        <div class="search_result-wrapper">
+            <div class="header-wrapper">
+                <div class="search_result">
+                    <h5>搜索结果：</h5>
+                    <h6><span>浦发银行</span> sh600000</h6>
+                    <h6><span>浦发银行银行和</span> sh600000</h6>
+                    <h6><span>浦发银行</span> sh600000</h6>
+                    <h6><span>浦发银行</span> sh600000</h6>
+                    <h6><span>浦发银行</span> sh600000</h6>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="main-content">
@@ -140,11 +161,22 @@
         </div>
     </div>
 
+    <ul class="pointers">
+        <li class="select"></li>
+        <li class="select"></li>
+        <li class="select"></li>
+        <li class="select"></li>
+        <li class="select"></li>
+        <li class="select"></li>
+        <li class="select"></li>
+    </ul>
     <div class="industry_rank">
+
         <div class="industry_rank_grade_wrapper">
             <p class="stock_content_title"><img src="../img/logo_s.png">行业评分榜</p>
             <table id="industry_rank_total"  class="industry_rank_total">
                 <tr>
+                    <!--<th></th>-->
                     <th class="column_rank">排名</th>
                     <th class="column_name">行业</th>
                     <th class="column_grade">总分</th>
@@ -157,6 +189,7 @@
                 </tr>
 
                 <tr>
+                    <!--<td class="select"></td>-->
                     <td>1</td>
                     <td>金融业</td>
                     <td>98</td>
@@ -167,6 +200,7 @@
                     <td class="column_toggle">23</td>
                 </tr>
                 <tr>
+                    <!--<td class="select"></td>-->
                     <td>2</td>
                     <td>金融业</td>
                     <td>98</td>
@@ -177,6 +211,7 @@
                     <td class="column_toggle">23</td>
                 </tr>
                 <tr>
+                    <!--<td class="select"></td>-->
                     <td>3</td>
                     <td>金融业</td>
                     <td>98</td>
@@ -187,6 +222,67 @@
                     <td class="column_toggle">23</td>
                 </tr>
                 <tr>
+                    <!--<td class="select"></td>-->
+                    <td>4</td>
+                    <td>金融业</td>
+                    <td>98</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                </tr>
+
+                <tr>
+                    <!--<td class="select"></td>-->
+                    <td>4</td>
+                    <td>金融业</td>
+                    <td>98</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                </tr>
+
+                <tr>
+                    <!--<td class="select"></td>-->
+                    <td>4</td>
+                    <td>金融业</td>
+                    <td>98</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                </tr>
+
+                <tr>
+                    <!--<td class="select"></td>-->
+                    <td>4</td>
+                    <td>金融业</td>
+                    <td>98</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                </tr>
+
+                <tr>
+                    <!--<td class="select"></td>-->
+                    <td>4</td>
+                    <td>金融业</td>
+                    <td>98</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                    <td class="column_toggle">23</td>
+                </tr>
+
+                <tr>
+                    <!--<td class="select"></td>-->
                     <td>4</td>
                     <td>金融业</td>
                     <td>98</td>

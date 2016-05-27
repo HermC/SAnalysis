@@ -127,6 +127,11 @@ h1,h2,h3,h4,h5,h6{
     color:#ccc;
     cursor: pointer;
 }
+.search_result h6 span{
+    display: inline-block;
+    width:150px;
+    margin-right:15px;
+}
 .search_result h6:hover{
     color:#ffde00;
     /*text-decoration: underline;*/
@@ -138,6 +143,7 @@ h1,h2,h3,h4,h5,h6{
     margin:0 auto 0 auto;
     padding-top:100px;
     width:1020px;
+    position: relative;
     /*height:200vh;*/
 }
 .stock_content_title{
