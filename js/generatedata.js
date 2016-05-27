@@ -171,7 +171,7 @@ function generateStocksData() {
     firstDate.setHours(0, 0, 0, 0);
 
     firstDate.setDate(firstDate.getDate() - 30);
-    for(var i=0;i<4;i++){
+    for(var i=0;i<10;i++){
         var result = {
             "id": i+"",
             "name": ""
@@ -233,4 +233,69 @@ function generateStocksData() {
 
         tmp_stocks_data.push(result);
     }
+}
+
+function generateSingleStockData(id) {
+    var firstDate = new Date();
+    firstDate.setHours(0, 0, 0, 0);
+
+    var result = {
+        "id": id+"",
+        "name": ""
+    };
+
+    var radarData = {
+        "adj_price": Math.random().toFixed(2),
+        "turnover": Math.random().toFixed(2),
+        "pe_ttm": Math.random().toFixed(2),
+        "pb": Math.random().toFixed(2),
+        "quantityrelative": Math.random().toFixed(2)
+    };
+
+    var other_data = [];
+
+    result["radar_data"] = radarData;
+
+    for(var j=0;j<10;j++){
+        var newDate = new Date(firstDate);
+        newDate.setDate(newDate.getDate() + j);
+
+        var tmp = {"date": newDate.Format("yyyy-MM-dd")};
+
+        var MACD = 10 * Math.random();
+        var volume = 100 * Math.random();
+        var totalMoney = volume * 10 * Math.random();
+        var KD = Math.random();
+        var RSI = Math.random();
+        var boll = Math.random()*2;
+
+        tmp["MACD"] = MACD.toFixed(2);
+        tmp["volume"] = volume.toFixed(2);
+        tmp["totalMoney"] = totalMoney.toFixed(2);
+        tmp["KD"] = KD.toFixed(2);
+        tmp["RSI"] = RSI.toFixed(2);
+        tmp["boll"] = boll.toFixed(2);
+        other_data.push(tmp);
+
+    }
+
+    result["other_data"] = other_data;
+
+    var future_data = [];
+
+    for(var k=0;k<3;k++){
+        var tmpDate = new Date(firstDate);
+        tmpDate.setDate(tmpDate.getDate() + k);
+
+        var future = 20 * Math.random();
+
+        var tmp2 = {"date": tmpDate.Format("yyyy-MM-dd")};
+
+        tmp2["forecast"] = future.toFixed(2);
+        future_data.push(tmp2);
+    }
+
+    result["forecast_data"] = future_data;
+
+    return result;
 }
