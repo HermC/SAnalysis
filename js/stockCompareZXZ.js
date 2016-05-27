@@ -8,6 +8,9 @@ var hideStocksData = [];
 
 window.onload = function(){
 
+    toggleSearch();
+    inputListener();
+
     blanketLinstener();
     clear();
     addInit();
@@ -19,6 +22,10 @@ window.onload = function(){
     addStock();
 
     num_display = 0;
+=======
+    perfectScroll();
+    num_display = 4;
+>>>>>>> 3989ee2d4882c4f8935cbb28699c8e9294075cf7
     //TODO
     //需要初始化num_display,
 };
@@ -124,6 +131,7 @@ function addInit(){
     $("#add").bind("click",addStock);
 }
 
+<<<<<<< HEAD
 var tmp = 1;
 
 function addStock() {
@@ -139,6 +147,8 @@ function addStock() {
     tmp++;
 }
 
+=======
+>>>>>>> 3989ee2d4882c4f8935cbb28699c8e9294075cf7
 function scrollMagic(){
     var controller = new ScrollMagic.Controller();
 
@@ -146,6 +156,7 @@ function scrollMagic(){
         .addTo(controller)
         .setPin("#blanket_wrapper");
 }
+<<<<<<< HEAD
 
 function updateCompareStocks() {
     var tmp = $.cookie('compareStock');
@@ -616,4 +627,12 @@ function initBollChart() {
     bollChart.addChartCursor(chartCursor);
 
     bollChart.write('boll_graph');
+=======
+
+function perfectScroll(){
+    console.log("ps");
+    var blanket = document.querySelector("#blanket");
+    Ps.initialize(blanket);
+    $(".ps-scrollbar-x-rail").hide();
+>>>>>>> 3989ee2d4882c4f8935cbb28699c8e9294075cf7
 }
