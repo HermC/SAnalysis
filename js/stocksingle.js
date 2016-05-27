@@ -1,3 +1,28 @@
+var navList;
+var navContents;
+var preNavIndex;
+window.onload = function(){
+    navList = document.querySelectorAll(".nav-item");
+    navContents = document.querySelectorAll(".stock_content");
+    preNavIndex = 0;
+    navListener();
+};
+
+function navListener(){
+    $("#nav").on("click",".nav-item",function(){
+        var index = 0;
+        for(var i = 0;i < navList.length;i++){
+            if(this == navList[i]){
+                index = i;
+            }
+        }
+        $(navList[preNavIndex]).removeClass("active");
+        $(navList[index]).addClass("active");
+        $(navContents[preNavIndex]).hide();
+        $(navContents[index]).show();
+        preNavIndex = index;
+    });
+}
 
 var stock_id;
 
@@ -132,78 +157,6 @@ function operateFavStock() {
         expire: 10
     });
 }
-
-
-function showBasic() {
-    $("#show_basic").attr("class", "nav-item active");
-    $("#show_evaluate").attr("class", "nav-item");
-    $("#show_forecast").attr("class", "nav-item");
-    $("#show_dynamic").attr("class", "nav-item");
-    $("#show_company").attr("class", "nav-item");
-
-    $("#basic").show();
-    $("#evaluate").hide();
-    $("#forecast").hide();
-    $("#dynamic").hide();
-    $("#company").hide();
-}
-
-function showEvaluate() {
-    $("#show_basic").attr("class", "nav-item");
-    $("#show_evaluate").attr("class", "nav-item active");
-    $("#show_forecast").attr("class", "nav-item");
-    $("#show_dynamic").attr("class", "nav-item");
-    $("#show_company").attr("class", "nav-item");
-
-    $("#basic").hide();
-    $("#evaluate").show();
-    $("#forecast").hide();
-    $("#dynamic").hide();
-    $("#company").hide();
-}
-
-function showForecast() {
-    $("#show_basic").attr("class", "nav-item");
-    $("#show_evaluate").attr("class", "nav-item");
-    $("#show_forecast").attr("class", "nav-item active");
-    $("#show_dynamic").attr("class", "nav-item");
-    $("#show_company").attr("class", "nav-item");
-
-    $("#basic").hide();
-    $("#evaluate").hide();
-    $("#forecast").show();
-    $("#dynamic").hide();
-    $("#company").hide();
-}
-
-function showDynamic() {
-    $("#show_basic").attr("class", "nav-item");
-    $("#show_evaluate").attr("class", "nav-item");
-    $("#show_forecast").attr("class", "nav-item");
-    $("#show_dynamic").attr("class", "nav-item active");
-    $("#show_company").attr("class", "nav-item");
-
-    $("#basic").hide();
-    $("#evaluate").hide();
-    $("#forecast").hide();
-    $("#dynamic").show();
-    $("#company").hide();
-}
-
-function showCompany() {
-    $("#show_basic").attr("class", "nav-item");
-    $("#show_evaluate").attr("class", "nav-item");
-    $("#show_forecast").attr("class", "nav-item");
-    $("#show_dynamic").attr("class", "nav-item");
-    $("#show_company").attr("class", "nav-item active");
-
-    $("#basic").hide();
-    $("#evaluate").hide();
-    $("#forecast").hide();
-    $("#dynamic").hide();
-    $("#company").show();
-}
-
 
 /*
 * 图表的变量声明以及初始化等方法
