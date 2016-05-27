@@ -11,19 +11,56 @@
 
     <script type="text/javascript" rel="script" src="../js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" rel="script" src="../js/favor.js"></script>
+    <script type="text/javascript" rel="script" src="../js/header.js"></script>
+    <script>
+        var stockList = [{
+            "id":"sh600000",
+            "name":"浦发银行"
+        },{
+            "id":"sh600001",
+            "name":"浦财银行"
+        },{
+            "id":"sh600002",
+            "name":"浦宝银行"
+        },{
+            "id":"sh600003",
+            "name":"浦进银行"
+        },{
+            "id":"sh600004",
+            "name":"浦长银行"
+        },{
+            "id":"sh600005",
+            "name":"浦命银行"
+        }];
+    </script>
 </head>
 <body>
 <img id="full_background" src="../img/background/background2.png">
 <div id="header">
     <div class="header-wrapper">
         <div class="logo"><span>A</span>scending</div>
+        <div class="input-wrapper" style="display: none">
+            <div class="search-icon"></div>
+            <input id="search_input" type="text" placeholder="输入股票id或名字">
+        </div>
+
         <ul class="menu">
-            <li>推荐</li>
-            <li>行业</li>
-            <li>对比</li>
-            <li>收藏</li>
-            <li><img src="../img/search.png"/></li>
+            <li id="search_toggle" class="search-icon">
+            </li>
+            <li class="menu-item">推荐</li>
+            <li class="menu-item">行业</li>
+            <li class="menu-item">对比</li>
+            <li class="menu-item">收藏</li>
         </ul>
+    </div>
+    <div class="full" style="display: none">
+        <div class="search_result-wrapper">
+            <div class="header-wrapper">
+                <div class="search_result">
+                    <h5>搜索结果：</h5>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="main-content">
