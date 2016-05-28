@@ -389,3 +389,7 @@
 #nav-sec .targeted{
     border-left:4px solid #ffde00;
 }
+#toTop{
+    margin:10px auto 0 10px;
+    cursor:pointer;
+}

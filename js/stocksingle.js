@@ -14,27 +14,27 @@ window.onload = function(){
 };
 
 window.onscroll = function(){
-    if(window.scrollY > 190){
-        $("#nav").css({
-            "position":"absolute",
-            "top":window.scrollY+70+"px",
-            "background":"rgba(3,27,47,1)"
-        })
-    }else{
-        $("#nav").css({
-            "top":0,
-            "position":"relative",
-            "background":"none"
-        })
-    }
+    //if(window.scrollY > 190){
+    //    $("#nav").css({
+    //        "position":"absolute",
+    //        "top":window.scrollY+70+"px",
+    //        "background":"rgba(3,27,47,1)"
+    //    })
+    //}else{
+    //    $("#nav").css({
+    //        "top":0,
+    //        "position":"relative",
+    //        "background":"none"
+    //    })
+    //}
 
-    if(window.scrollY >= 280 ){
+    if(window.scrollY >= 270 ){
         $("#nav-sec").css({
             "position":"absolute",
-            "top":window.scrollY+100+"px"
+            "top":window.scrollY+110+"px"
         });
     }else{
-        $("#stockListWrapper").css({
+        $("#nav-sec").css({
             "position":"absolute",
             "top":"380px"
         });
@@ -62,7 +62,16 @@ function navListener(){
            $(this).removeClass("targeted");
         });
         $(this).addClass("targeted");
+    }).on("click","#toTop",function(){
+        console.log("111");
+        window.scrollTo(0,0);
+        $("#nav-sec").css({
+            "position":"absolute",
+            "top":"380px"
+        });
     })
+
+
 }
 
 var stock_id;
