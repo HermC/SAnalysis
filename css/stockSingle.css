@@ -198,7 +198,7 @@
 #evaluate{
     /*flex-direction: column;*/
 }
-#grade{
+#grade_wrapper{
     width:100%;
     /*background-color: #bba887;*/
 }
@@ -227,7 +227,7 @@
     width:100%;
 }
 
-#bench_relative{
+#bench_relative_wrapper{
     width:50%;
 }
 .text_instruction_item{
@@ -355,10 +355,37 @@
 #forecast_graph {
     height:300px;
 }
-
+#nav{
+    z-index: 100;
+}
 .info,#nav,.stock_content{
     /*margin:0;*/
     /*padding:10px;*/
     /*background-color: rgba(0,0,0,0.3);*/
     /*background-color: rgba(3,27,47,0.7);*/
+}
+
+
+#nav-sec{
+    display: block;
+    position: absolute;
+    right:0;
+    top:380px;
+    transform: translate(150%,0);
+}
+#nav-sec a{
+    width:auto;
+    display:block;
+    padding:3px 8px 3px 5px ;
+    margin-bottom:5px;
+    margin-right:auto;
+    /*background-color: rgba(255,0,0,0.3);*/
+    color:#ffde00;
+    text-decoration: none;
+    border-left:1px solid #ffde00;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+#nav-sec .targeted{
+    border-left:4px solid #ffde00;
 }

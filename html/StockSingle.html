@@ -116,60 +116,65 @@
     <div id="nav">
         <span>·</span>
         <p id="show_basic" class="nav-item active">基本图表</p>
-        <!--<p id="show_basic" class="nav-item active" onclick="showBasic()">基本图表</p>-->
         <span>·</span>
         <p id="show_evaluate" class="nav-item">分析评估</p>
-        <!--<p id="show_evaluate" class="nav-item" onclick="showEvaluate()">分析评估</p>-->
         <span>·</span>
         <p id="show_forecast" class="nav-item">走势预测</p>
-        <!--<p id="show_forecast" class="nav-item" onclick="showForecast()">走势预测</p>-->
         <span>·</span>
         <p id="show_dynamic" class="nav-item">实时分析</p>
-        <!--<p id="show_dynamic" class="nav-item" onclick="showDynamic()">实时分析</p>-->
         <span>·</span>
         <p id="show_company" class="nav-item">公司信息</p>
-        <!--<p id="show_company" class="nav-item" onclick="showCompany()">公司信息</p>-->
         <span>·</span>
     </div>
 
+    <div id="nav-sec">
+        <div id="nav-sec0" class="nav-sec-item">
+            <a href="#k_wrapper" class="targeted">K线图</a>
+            <a href="#macd_wrapper">MACD</a>
+            <a href="#rsi_wrapper">RSI</a>
+            <a href="#kdj_wrapper">KDJ</a>
+            <a href="#boll_wrapper">BOLL</a>
+        </div>
+    </div>
+
     <div id="basic" class="stock_content">
-        <div class="basic_graph_wrapper_k">
+        <div id="k_wrapper" class="basic_graph_wrapper_k">
             <p class="stock_content_title"><img src="../img/logo_s.png">K线图 · 成交量 · 成交金额</p>
             <div id="stock_graph">
 
             </div>
         </div>
 
-        <div class="basic_graph_wrapper_other">
+        <div id="macd_wrapper" class="basic_graph_wrapper_other">
             <p class="stock_content_title"><img src="../img/logo_s.png">MACD</p>
             <div id="macd_graph" class="graph_basic_other">
 
             </div>
         </div>
 
-        <div class="basic_graph_wrapper_other">
+        <div id="rsi_wrapper" class="basic_graph_wrapper_other">
             <p class="stock_content_title"><img src="../img/logo_s.png">RSI</p>
             <div id="rsi_graph" class="graph_basic_other">
 
             </div>
         </div>
 
-        <div class="basic_graph_wrapper_other">
+        <div id="kdj_wrapper" class="basic_graph_wrapper_other">
             <p class="stock_content_title"><img src="../img/logo_s.png">KDJ</p>
             <div id="kdj_graph" class="graph_basic_other">
 
             </div>
         </div>
 
-        <div class="basic_graph_wrapper_other">
+        <div id="boll_wrapper" class="basic_graph_wrapper_other">
             <p class="stock_content_title"><img src="../img/logo_s.png">BOLL</p>
             <div id="boll_graph" class="graph_basic_other">
 
             </div>
         </div>
     </div>
-    <div id="evaluate" class="stock_content">
-        <div id="grade" class="stock_content_single">
+    <div id="evaluate" class="stock_content" style="display: none">
+        <div id="grade_wrapper" class="stock_content_single">
             <div class="stock_content_title"><img src="../img/logo_s.png"><p>股票评分</p></div>
             <div id="grade_graph">
                 <div id="grade_radar">
@@ -197,13 +202,13 @@
             </div>
         </div>
 
-        <div id="bench_relative" class="stock_content_single">
+        <div id="bench_relative_wrapper" class="stock_content_single">
             <p class="stock_content_title"><img src="../img/logo_s.png">大盘相关性分析</p>
         </div>
 
     </div>
 
-    <div id="forecast" class="stock_content">
+    <div id="forecast" class="stock_content" style="display: none">
         <div id="forecast_one" class="stock_content_single">
             <p class="stock_content_title"><img src="../img/logo_s.png">走势预测<span>(未来三天收盘价)</span></p>
             <div id="forecast_graph">
@@ -212,9 +217,9 @@
         </div>
     </div>
 
-    <div id="dynamic" class="stock_content">
+    <div id="dynamic" class="stock_content" style="display: none">
 
-        <div class="row_wrapper">
+        <div id="dynamic_trade_wrapper" class="row_wrapper">
             <div class="column_wrapper dynamic_graph_wrapper">
                 <p class="stock_content_title"><img src="../img/logo_s.png">实时交易</p>
                 <!--<div id="dynamic_five_level">-->
@@ -258,9 +263,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
 
         <div id="text_instruction" class="stock_content_single">
@@ -341,25 +343,25 @@
         </div>
     </div>
 
-    <div id="company" class="stock_content">
-        <p class="stock_content_title"><img src="../img/logo_s.png">公司简介</p>
+    <div id="company" class="stock_content" style="display: none">
+        <p id="company_intro" class="stock_content_title"><img src="../img/logo_s.png">公司简介</p>
         <h1>上市日期：2000-01-02</h1>
         <h1>公司状态：上市</h1>
         <h1>公司描述：招商局能源运输股份有限公司的主营业务为远洋游轮及散货船运输。其运输业包括游轮运输、散货船运输、液化天然气船运输，涵盖了能源运输的主要货。
         招商局能源运输股份有限公司的主营业务为远洋游轮及散货船运输。其运输业包括游轮运输、散货船运输、液化天然气船运输，涵盖了能源运输的主要货种</h1>
 
-        <p class="stock_content_title"><img src="../img/logo_s.png">增长</p>
-        <div id="company_rise">
+        <p id="company_rise" class="stock_content_title"><img src="../img/logo_s.png">增长</p>
+        <div id="company_rise_graph">
 
         </div>
 
-        <p class="stock_content_title"><img src="../img/logo_s.png">盈利能力</p>
-        <div id="company_profit">
+        <p id="company_profit" class="stock_content_title"><img src="../img/logo_s.png">盈利能力</p>
+        <div id="company_profit_graph">
 
         </div>
 
-        <p class="stock_content_title"><img src="../img/logo_s.png">财务状况</p>
-        <div id="company_financial">
+        <p id="company_financial" class="stock_content_title"><img src="../img/logo_s.png">财务状况</p>
+        <div id="company_financial_graph">
 
         </div>
 

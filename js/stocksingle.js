@@ -1,11 +1,44 @@
 var navList;
 var navContents;
 var preNavIndex;
+var secondNavList = ['<div id="nav-sec0" class="nav-sec-item"><a href="#k_wrapper" class="targeted">K线图</a> <a href="#macd_wrapper">MACD</a> <a href="#rsi_wrapper">RSI</a> <a href="#kdj_wrapper">KDJ</a><a href="#boll_wrapper">BOLL</a></div>',
+    '<div id="nav-sec1" class="nav-sec-item"> <a href="#grade_wrapper" class="targeted">股票评分</a> <a href="#bench_relative_wrapper">大盘相关</a> </div>',
+    '<div id="nav-sec2" class="nav-sec-item"> <a href="#forecast_one" class="targeted">走势预测</a> </div>',
+    '<div id="nav-sec3" class="nav-sec-item"> <a href="#dynamic_trade_wrapper" class="targeted">实时交易</a> <a href="#text_instruction">实时分析</a> </div>',
+    '<div id="nav-sec4" class="nav-sec-item"> <a href="#company_intro" class="targeted">公司简介</a> <a href="#company_rise">增长</a> <a href="#company_profit">盈利能力</a> <a href="#company_financial">财务状况</a> </div>'];
 window.onload = function(){
     navList = document.querySelectorAll(".nav-item");
     navContents = document.querySelectorAll(".stock_content");
     preNavIndex = 0;
     navListener();
+};
+
+window.onscroll = function(){
+    if(window.scrollY > 190){
+        $("#nav").css({
+            "position":"absolute",
+            "top":window.scrollY+70+"px",
+            "background":"rgba(3,27,47,1)"
+        })
+    }else{
+        $("#nav").css({
+            "top":0,
+            "position":"relative",
+            "background":"none"
+        })
+    }
+
+    if(window.scrollY >= 280 ){
+        $("#nav-sec").css({
+            "position":"absolute",
+            "top":window.scrollY+100+"px"
+        });
+    }else{
+        $("#stockListWrapper").css({
+            "position":"absolute",
+            "top":"380px"
+        });
+    }
 };
 
 function navListener(){
@@ -20,8 +53,16 @@ function navListener(){
         $(navList[index]).addClass("active");
         $(navContents[preNavIndex]).hide();
         $(navContents[index]).show();
+        $("#nav-sec").html(secondNavList[index]);
         preNavIndex = index;
     });
+
+    $("#nav-sec").on("click","a",function(){
+        $(this.parentNode).find("a").each(function(){
+           $(this).removeClass("targeted");
+        });
+        $(this).addClass("targeted");
+    })
 }
 
 var stock_id;
@@ -210,7 +251,7 @@ AmCharts.ready(function() {
     initDynamicChart();
     initFutureChart();
 
-    showBasic();
+    //showBasic();
     //showDynamic();
 });
 
